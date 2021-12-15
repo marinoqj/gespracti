@@ -1,0 +1,5 @@
+CREATE DATABASE gespracti DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+CREATE USER 'gespracti'@'localhost' IDENTIFIED BY 'gespracti';
+
+GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,CREATE TEMPORARY TABLES,DROP,INDEX,ALTER ON gespracti.* TO 'gespracti'@'localhost';
