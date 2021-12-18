@@ -49,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	        .and()
 	            .formLogin()
 	            .loginPage("/login.do")
-	            .defaultSuccessUrl("/accessook.do")
+	            .defaultSuccessUrl("/inicio.do")
 	            .failureUrl("/login-failure.do")
 	            .permitAll()
 	        .and()
