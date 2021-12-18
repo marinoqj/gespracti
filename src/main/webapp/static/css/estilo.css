@@ -76,6 +76,11 @@
 	 color: white;
 }
 
+.navbar.navbar-dark .breadcrumb .nav-item.active>.nav-link, .navbar.navbar-dark .navbar-nav .nav-item.active>.nav-link {
+    background-color: rgba(255,255,255,0);
+}
+
+
 
 .grah-container {
   width:100%;
@@ -85,4 +90,48 @@
 
 #rojo {	
 	color:#f00;
+}
+
+.p-sup-20 {
+	padding-top: 20px;
+}
+
+.p-sup-10 {
+	padding-top: 10px;
+}
+
+.p-sup-60 {
+	padding-top: 60px;
+}
+
+.p-sup-80 {
+	padding-top: 80px;
+}
+
+.aviso, label {
+	font-size: 0.9rem;
+}
+
+@media (max-width: 992px) {
+	
+	.p-sup-20 {
+		padding-top: 0px !important;
+	}
+	
+	.p-sup-10 {
+		padding-top: 0px !important;
+	}
+	
+	.p-sup-60 {
+		padding-top: 0px !important;
+	}
+	
+	.p-sup-80 {
+		padding-top: 0px !important;
+	}
+	
+	.p-sup-100 {
+		padding-top: 0px !important;
+	}
+	
 }

@@ -51,8 +51,8 @@ $(document).ready(function(){
          <p></p>
       </div>
       <div class="modal-footer">
-         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><em class="fas fa-times-circle"></em>&nbsp;&nbsp;Cancelar</button>
-         <a class="btn btn-primary btn-sm" role="button" href="#" id="aceptarBorrar"><em class="fas fa-check-circle"></em>&nbsp;&nbsp;<spring:message code="button.aceptar" /></a>
+         <button type="button" class="btn btn-rounded btn-secondary btn-sm" data-dismiss="modal"><em class="fas fa-times-circle"></em>&nbsp;&nbsp;Cancelar</button>
+         <a class="btn btn-rounded btn-primary btn-sm" role="button" href="#" id="aceptarBorrar"><em class="fas fa-check-circle"></em>&nbsp;&nbsp;<spring:message code="button.aceptar" /></a>
       </div>
     </div>
   </div>
@@ -69,14 +69,13 @@ $(document).ready(function(){
 		<br>
 		<br>
 		<br>
-		<br>
 
 
-		<div class="row">
+		<div class="row p-sup-20">
 			<div class="col-md-12">
 				<nav aria-label="breadcrumb">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item active"><em class="fas fa-list-alt fa-lg mr-1"></em><em class="fas fa-users fa-lg mr-2"></em>Listado de empresas</li>
+						<li class="breadcrumb-item active"><em class="fas fa-list-alt fa-lg mr-1"></em><em class="fas fa-industry fa-lg mr-2"></em>Listado de empresas</li>
 					</ol>
 				</nav>
 			</div>
@@ -163,15 +162,13 @@ $(document).ready(function(){
 
 			<br>
 			<br>
-			<br>
-			<br>
-			<div class="text-center">No hay empresas que mostrar...</div>
+			<div class="text-center text-danger p-5">No hay empresas que mostrar...</div>
 		</c:if>
 
 		<div class="row">
 			<div class="col-md-12">
-				<a href='<spring:url value="/sec/altaEmpresa.do"/>' class="btn btn-primary btn-sm"><em class="fas fa-plus-circle"></em>&nbsp;&nbsp;Nueva</a>
-				<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#ventanaBuscar"><em class="fas fa-search"></em> &nbsp;&nbsp;Buscar</button>
+				<a href='<spring:url value="/sec/altaEmpresa.do"/>' class="btn btn-rounded btn-primary btn-sm"><em class="fas fa-plus-circle"></em>&nbsp;&nbsp;Nueva</a>
+				<button type="button" class="btn btn-rounded btn-success btn-sm" data-toggle="modal" data-target="#ventanaBuscar"><em class="fas fa-search"></em> &nbsp;&nbsp;Buscar</button>
 			</div>
 		</div>
 
@@ -405,8 +402,8 @@ $(document).ready(function(){
 			<br>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><em class="fas fa-times-circle"></em>&nbsp;&nbsp;Cancelar</button>
-        <button type="submit" class="btn btn-success btn-sm"><em class="fas fa-save"></em> &nbsp;&nbsp;Guardar</button>
+        <button type="button" class="btn btn-rounded btn-secondary btn-sm" data-dismiss="modal"><em class="fas fa-times-circle"></em>&nbsp;&nbsp;Cancelar</button>
+        <button type="submit" class="btn btn-rounded btn-success btn-sm"><em class="fas fa-save"></em> &nbsp;&nbsp;Guardar</button>
       </div>
 
       </form:form>
@@ -646,8 +643,8 @@ $(document).ready(function(){
 			<br>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><em class="fas fa-times-circle"></em>&nbsp;&nbsp;Cancelar</button>
-        <button type="submit" class="btn btn-success btn-sm"><em class="fas fa-save"></em> &nbsp;&nbsp;Buscar</button>
+        <button type="button" class="btn btn-rounded btn-secondary btn-sm" data-dismiss="modal"><em class="fas fa-times-circle"></em>&nbsp;&nbsp;Cancelar</button>
+        <button type="submit" class="btn btn-rounded btn-success btn-sm"><em class="fas fa-save"></em> &nbsp;&nbsp;Buscar</button>
       </div>
 
       </form:form>
@@ -655,5 +652,4 @@ $(document).ready(function(){
   </div>
 </div>
 </div>
-
 

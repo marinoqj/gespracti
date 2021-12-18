@@ -4,7 +4,7 @@
 <!-- Banner de la página de Login -->
 
 <nav class="navbar navbar-expand-lg navbar-light fixed-top scrolling-navbar" style="background-color: #1867b7;">
-<div class="container-fluid">
+<div class="container">
 	<a class="navbar-brand" href="#"> <img src='<spring:url value="/static/imagenes/upm-logo.png"/>' class="d-inline-block"></a>
 </div>
 </nav>			
@@ -15,11 +15,9 @@
 <br>
 <br>
 <br>
-<br>
-<br>
 
 
-<div class="row">
+<div class="row p-sup-60">
 	<div class="col-md-3 col-lg-4">&nbsp;</div>
 	<div class="col-md-6 col-lg-4">
 		
@@ -37,7 +35,7 @@
 			<input type="password" name="password" class="form-control mb-4" placeholder="Password">
 
 			<!-- Sign in button -->
-			<button class="btn btn-primary btn-block btn-sm" type="submit">Entrar</button>
+			<button class="btn btn-rounded btn-primary btn-block btn-sm" type="submit">Entrar</button>
 
 		</div>
 		
