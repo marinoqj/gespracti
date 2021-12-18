@@ -24,7 +24,12 @@ public class UrlConstants {
 
 	
 	public static final String SEGURIDAD_EMPRESAS =  "/sec";	
-	public static final String SEGURIDAD_ESTUDIANTES =  "/sec";		
+	public static final String SEGURIDAD_ESTUDIANTES =  "/sec";	
+	public static final String SEGURIDAD_CONSTANTES =  "/sec";	 
+	public static final String SEGURIDAD_OFERTAS =  "/sec";		
+
+	
+
 
 	
 
@@ -50,6 +55,30 @@ public class UrlConstants {
 	public static final String URL_ACTUALIZAR_ESTUDIANTE = SEGURIDAD_ESTUDIANTES + "/actualizarEstudiante.do";
 	public static final String URL_BORRAR_ESTUDIANTE = SEGURIDAD_ESTUDIANTES + "/borrarEstudiante.do";
     public static final String URL_BUSCAR_ESTUDIANTES = SEGURIDAD_ESTUDIANTES + "/buscarEstudiantes.do";
+
+	// Constantes
+	public static final String URL_LISTADO_CONSTANTES = SEGURIDAD_CONSTANTES + "/listadoConstantes" + SUFIJO_PAGINACION;
+	public static final String URL_LISTADO_CONSTANTES_FILTRADO = SEGURIDAD_CONSTANTES + "/listadoConstantesFiltrado" + SUFIJO_PAGINACION;
+	public static final String URL_ALTA_CONSTANTE = SEGURIDAD_CONSTANTES + "/altaConstante.do";
+	public static final String URL_INSERTAR_CONSTANTE = SEGURIDAD_CONSTANTES + "/insertarConstante.do";
+	public static final String URL_EDITAR_CONSTANTE = SEGURIDAD_CONSTANTES + "/editarConstante.do";
+	public static final String URL_ACTUALIZAR_CONSTANTE = SEGURIDAD_CONSTANTES + "/actualizarConstante.do";
+	public static final String URL_BORRAR_CONSTANTE = SEGURIDAD_CONSTANTES + "/borrarConstante.do";
+    public static final String URL_BUSCAR_CONSTANTES = SEGURIDAD_CONSTANTES + "/buscarConstantes.do";
+
+	
+   
+
+	// Ofertas
+	public static final String URL_LISTADO_OFERTAS = SEGURIDAD_OFERTAS + "/listadoOfertas" + SUFIJO_PAGINACION;
+	public static final String URL_LISTADO_OFERTAS_FILTRADO = SEGURIDAD_OFERTAS + "/listadoOfertasFiltrado" + SUFIJO_PAGINACION;
+	public static final String URL_ALTA_OFERTA = SEGURIDAD_OFERTAS + "/altaOferta.do";
+	public static final String URL_INSERTAR_OFERTA = SEGURIDAD_OFERTAS + "/insertarOferta.do";
+	public static final String URL_EDITAR_OFERTA = SEGURIDAD_OFERTAS + "/editarOferta.do";
+	public static final String URL_ACTUALIZAR_OFERTA = SEGURIDAD_OFERTAS + "/actualizarOferta.do";
+	public static final String URL_BORRAR_OFERTA = SEGURIDAD_OFERTAS + "/borrarOferta.do";
+    public static final String URL_BUSCAR_OFERTAS = SEGURIDAD_OFERTAS + "/buscarOfertas.do";
+
 
 
 	

@@ -51,7 +51,30 @@
     <definition name="ListadoEstudiantes" extends="baseLayout">
         <put-attribute name="title" value="Listado de estudiantes"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/estudiantes/listadoEstudiantes.jsp"/>
-    </definition>	
+    </definition>
+    
+    <!-- Constantes -->
+    <definition name="ConstanteForm" extends="baseLayout">
+        <put-attribute name="title" value="Alta de constantes"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/constantes/constanteForm.jsp"/>
+    </definition>
+
+    <definition name="ListadoConstantes" extends="baseLayout">
+        <put-attribute name="title" value="Listado de constantes"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/constantes/listadoConstantes.jsp"/>
+    </definition>
+
+
+    <!-- Ofertas -->
+    <definition name="OfertaForm" extends="baseLayout">
+        <put-attribute name="title" value="Alta de ofertas"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/ofertas/ofertaForm.jsp"/>
+    </definition>
+
+    <definition name="ListadoOfertas" extends="baseLayout">
+        <put-attribute name="title" value="Listado de ofertas"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/ofertas/listadoOfertas.jsp"/>
+    </definition> 
 	
       
 </tiles-definitions>

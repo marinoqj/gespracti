@@ -22,5 +22,16 @@ public class ForwardConstants {
 	public static final String RED_LISTADO_ESTUDIANTES = "redirect:listadoEstudiantes1.do";
 	public static final String FWD_ESTUDIANTE_FORM = "EstudianteForm";
 	
+	// Constantes
+	public static final String FWD_LISTADO_CONSTANTES = "ListadoConstantes";	
+	public static final String RED_LISTADO_CONSTANTES = "redirect:listadoConstantes1.do";
+	public static final String FWD_CONSTANTE_FORM = "ConstanteForm";
+	
+
+	// Ofertas
+	public static final String FWD_LISTADO_OFERTAS = "ListadoOfertas";	
+	public static final String RED_LISTADO_OFERTAS = "redirect:listadoOfertas1.do";
+	public static final String FWD_OFERTA_FORM = "OfertaForm";
+	
 
 }
