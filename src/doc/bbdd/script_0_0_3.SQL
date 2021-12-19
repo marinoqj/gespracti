@@ -1,4 +1,4 @@
-﻿/*
+/*
 Created: 13/12/2021
 Modified: 18/12/2021
 Model: gespracti
