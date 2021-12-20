@@ -40,6 +40,15 @@ public class LoginController {
 			
 			model.addAttribute("titulo", "Portal de Empresas");
 			model.addAttribute("paginaRegistro", "pub/altaEmpresa.do");
+		
+		}else if(tipoPortal.equals("TUTOR")) {
+			
+			model.addAttribute("titulo", "Portal de Tutores");
+		
+		}else if(tipoPortal.equals("GESTOR")) {
+			
+			model.addAttribute("titulo", "Portal de Gestión");
+		
 		}
 		
 		return ForwardConstants.FWD_LOGIN;

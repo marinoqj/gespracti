@@ -15,27 +15,20 @@
         <div class="row">
             <div class="col text-center">
                 <h3 class="font-weight-bold">Gestión de Prácticas de la UPM</h3>
-                <p class="pink-text">Seleccione un portal según su perfil</p>
             </div>
         </div>
 
         <div class="row pt-5">
             <div class="col-lg-3 text-center py-3">
+				&nbsp;
+            </div>            
+            <div class="col-lg-6 text-center py-3">
                 <img src="<spring:url value="/static/imagenes/portal_estudiantes.png" />"  class="img-fluid rounded-circle w-75" alt="Portal Estudiantes">
                 <h5 class="text-primary pt-3">Portal Estudiantes</h5>
             </div>
             <div class="col-lg-3 text-center py-3">
-                <img src="<spring:url value="/static/imagenes/portal_empresas.png" />"  class="img-fluid z-depth-1 rounded-circle w-75" alt="Portal Empresas">
-                <h5 class="text-primary pt-3">Portal Empresas</h5>
-            </div>
-            <div class="col-lg-3 text-center py-3">
-                <img src="<spring:url value="/static/imagenes/portal_tutores.png" />"  class="img-fluid rounded-circle w-75" alt="Portal Tutores">
-                <h5 class="text-primary pt-3">Portal Tutores</h5>
-            </div>
-            <div class="col-lg-3 text-center py-3">
-                <img src="<spring:url value="/static/imagenes/portal_admin.png" />"  class="img-fluid z-depth-1 rounded-circle w-75" alt="Portal Administrador">
-                <h5 class="text-primary pt-3">Portal Gestores</h5>
-            </div>
+				&nbsp;
+            </div>   
         </div>
         
 <%--        <div class="row row-cols-lg-2 row-cols-1 px-md-5">--%>

@@ -4,7 +4,8 @@ public enum Roles {
 	
 	ADMIN(1L, "ADMIN"),
 	ESTUDIANTE(2L, "ESTUDIANTE"),
-	EMPRESA(3L,"EMPRESA");
+	EMPRESA(3L,"EMPRESA"),
+	TUTOR(4L,"TUTOR");
 
 	private final long idRol;
 	private final String nombreRol;
