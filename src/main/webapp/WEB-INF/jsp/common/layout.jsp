@@ -16,6 +16,7 @@
 	
 	
 	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href='<spring:url value="/static/css/bootstrap-datepicker.min.css" />' media="all" />
 	<link rel="stylesheet" type="text/css" href='<spring:url value="/static/css/bootstrap.4.5.min.css" />' media="all" />
 	<link rel="stylesheet" type="text/css" href='<spring:url value="/static/css/mdb.min.css" />' media="all" />
 	<link rel="stylesheet" type="text/css" href='<spring:url value="/static/css/estilo.css" />' media="all" />
@@ -25,6 +26,8 @@
 
 	<!-- SCRIPTS -->
 	<script type="text/javascript" src='<spring:url value="/static/js/jquery-3.3.1.min.js"/>' ></script>
+	<script type="text/javascript" src='<spring:url value="/static/js/bootstrap-datepicker.min.js"/>' ></script>
+	<script type="text/javascript" src='<spring:url value="/static/js/locales/bootstrap-datepicker.es.js"/>' charset="UTF-8"></script>
 	
 
 </head>

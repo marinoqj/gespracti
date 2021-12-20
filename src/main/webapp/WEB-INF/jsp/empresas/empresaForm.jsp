@@ -209,7 +209,9 @@
 
 							<div class="form-row">
 								<div class="form-group col-md-4 pr-3">
-									<label for="fechaEscritura"><spring:message code="label.fechaEscritura"/><span style="color: red">**</span></label> <form:input path="fechaEscritura" class="form-control form-control-sm" placeholder="dd/mm/aaaa"/><form:errors path="fechaEscritura" element="div" id="rojo"/>
+									<label for="fechaEscritura"><spring:message code="label.fechaEscritura"/><span style="color: red">**</span></label> 
+									<form:input path="fechaEscritura" class="form-control form-control-sm datepicker" data-date-format="dd-mm-yyyy" placeholder="dd-mm-aaaa" />
+									<form:errors path="fechaEscritura" element="div" id="rojo"/>
 								</div>
 								<div class="form-group col-md-4 pr-3">
 									<label for="notario"><spring:message code="label.notario"/><span style="color: red">**</span></label> <form:input path="notario" class="form-control form-control-sm"/><form:errors path="notario" element="div" id="rojo"/>
@@ -317,3 +319,17 @@
 
 
 	</form:form>
+	
+	
+<script type="text/javascript">
+    $('.datepicker').datepicker({
+        weekStart: 1,
+        daysOfWeekHighlighted: "6,0",
+        autoclose: true,
+        todayHighlight: true,
+        language: 'es',
+    });
+    // $('.datepicker').datepicker("setDate", new Date());
+    
+</script>    
+	
