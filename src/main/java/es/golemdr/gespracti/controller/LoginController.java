@@ -35,19 +35,29 @@ public class LoginController {
 			
 			model.addAttribute("titulo", "Portal de Estudiantes");
 			model.addAttribute("paginaRegistro", "pub/altaEstudiante.do");
+			model.addAttribute("usuarioPrueba", "estudiante");
+			model.addAttribute("passwordPrueba", "estudiante");
 			
 		}else if(tipoPortal.equals("EMPRESA")) {
 			
 			model.addAttribute("titulo", "Portal de Empresas");
 			model.addAttribute("paginaRegistro", "pub/altaEmpresa.do");
+			model.addAttribute("usuarioPrueba", "empresa");
+			model.addAttribute("passwordPrueba", "empresa");
 		
 		}else if(tipoPortal.equals("TUTOR")) {
 			
 			model.addAttribute("titulo", "Portal de Tutores");
+			model.addAttribute("usuarioPrueba", "tutor");
+			model.addAttribute("passwordPrueba", "tutor");
+
 		
 		}else if(tipoPortal.equals("GESTOR")) {
 			
 			model.addAttribute("titulo", "Portal de Gestión");
+			model.addAttribute("usuarioPrueba", "gestor");
+			model.addAttribute("passwordPrueba", "gestor");
+
 		
 		}
 		

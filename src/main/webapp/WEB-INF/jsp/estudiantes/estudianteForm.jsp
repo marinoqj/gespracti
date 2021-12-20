@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/jsp/common/include_taglib.jsp"%>
 
 
-<form:form modelAttribute="estudiante" action='${modo}Estudiante.do' method="post">
+<form:form modelAttribute="estudianteForm" action='${modo}Estudiante.do' method="post">
 
 
 	<br>
@@ -63,7 +63,7 @@
 
 
 	<div class="form-row">
-		<div class="form-group col-md-6 pr-md-3">
+		<div class="form-group col-md-3 pr-md-3">
 			<label for="sexo"><spring:message code="label.sexo" /></label>
 <%-- 			<form:input path="sexo" class="form-control form-control-sm" />--%>
 			<select class="form-control form-control-sm">
@@ -73,16 +73,12 @@
 			</select>
 			<form:errors path="sexo" element="div" id="rojo" />			
 		</div>
-		<div class="form-group col-md-6 pr-md-3">
+		<div class="form-group col-md-3 pr-md-3">
 				<label for="fechaNacimiento"><spring:message code="label.fechaNacimiento" /><span style="color: red">*</span></label> 
-				<form:input path="fechaNacimiento" class="form-control form-control-sm datepicker" data-date-format="dd-mm-yyyy" placeholder="dd-mm-aaaa" />
-				<form:errors path="fechaNacimiento" element="div" id="rojo" />
+				<form:input path="fechaNacimientoS" class="form-control form-control-sm datepicker" data-date-format="dd/mm/yyyy" placeholder="dd/mm/aaaa" />
+				<form:errors path="fechaNacimientoS" element="div" id="rojo" />
 		</div>		
-	</div>
-
-
-	<div class="form-row">
-		<div class="form-group col-md-6 pr-md-3">
+		<div class="form-group col-md-3 pr-md-3">
 			<label for="tipoDocumento"><spring:message code="label.tipoDocumento" /><span style="color: red">*</span></label>
 <%-- 			<form:input path="tipoDocumento" class="form-control form-control-sm" />--%>
 			<select class="form-control form-control-sm">
@@ -93,7 +89,7 @@
 			</select>
 			<form:errors path="tipoDocumento" element="div" id="rojo" />
 		</div>		
-		<div class="form-group col-md-6 pr-md-3">
+		<div class="form-group col-md-3 pr-md-3">
 			<label for="dniNie"><spring:message code="label.dniNie" /><span style="color: red">*</span></label>
 			<form:input path="dniNie" class="form-control form-control-sm" />
 			<form:errors path="dniNie" element="div" id="rojo" />
@@ -116,47 +112,46 @@
 	
 	
 	<div class="form-row">	
-		<div class="form-group col-md-12">
+		<div class="form-group col-md-6">
 			<label for="direccion"><spring:message code="label.direccion" /><span style="color: red">*</span></label>
 			<form:input path="direccion" class="form-control form-control-sm" />
 			<form:errors path="direccion" element="div" id="rojo" />
-		</div>	
-	</div>
-
-
-	<div class="form-row">
+		</div>
 		<div class="form-group col-md-4 pr-md-3">
 			<label for="muncipio"><spring:message code="label.muncipio" /><span style="color: red">*</span></label>
 			<form:input path="muncipio" class="form-control form-control-sm" />
 			<form:errors path="muncipio" element="div" id="rojo" />
-		</div>
-		<div class="form-group col-md-4 pr-md-3">
-			<label for="provincia"><spring:message code="label.provincia" /><span style="color: red">*</span></label>
-			<form:input path="provincia" class="form-control form-control-sm" />
-			<form:errors path="provincia" element="div" id="rojo" />
-		</div>
-		<div class="form-group col-md-4 pr-md-3">
+		</div>		
+		<div class="form-group col-md-2 pr-md-3">
 			<label for="codPostal"><spring:message code="label.codPostal" /><span style="color: red">*</span></label>
 			<form:input path="codPostal" class="form-control form-control-sm" />
 			<form:errors path="codPostal" element="div" id="rojo" />
-		</div>
+		</div>		
 	</div>
 
 
 	<div class="form-row">
-		<div class="form-group col-md-4 pr-md-3">
+		<div class="form-group col-md-3 pr-md-3">
+			<label for="provincia"><spring:message code="label.provincia" /><span style="color: red">*</span></label>
+			<form:input path="provincia" class="form-control form-control-sm" />
+			<form:errors path="provincia" element="div" id="rojo" />
+		</div>
+		<div class="form-group col-md-3 pr-md-3">
 			<label for="pais"><spring:message code="label.pais" /><span style="color: red">*</span></label>
-			<form:input path="pais" class="form-control form-control-sm" />
+			<select class="form-control form-control-sm">
+				<option selected value="1">España</option>
+				<option value="2">Unión Europea</option>
+				<option value="3">Otros</option>
+			</select>
 			<form:errors path="pais" element="div" id="rojo" />
 		</div>
-		<div class="form-group col-md-4 pr-md-3">
+		<div class="form-group col-md-3 pr-md-3">
 			<label for="nacionalidad"><spring:message
 					code="label.nacionalidad" /><span style="color: red">*</span></label>
 			<form:input path="nacionalidad" class="form-control form-control-sm" />
 			<form:errors path="nacionalidad" element="div" id="rojo" />
 		</div>
-		
-		<div class="form-group col-md-4 pr-md-3">
+		<div class="form-group col-md-3 pr-md-3">
 			<label for="gradoMinusvalia"><spring:message code="label.gradoMinusvalia" /></label>
 <%-- 			<form:input path="gradoMinusvalia" class="form-control form-control-sm" />--%>
 			<select class="form-control form-control-sm">
@@ -166,10 +161,8 @@
 				<option value="3">más de 33%</option>
 			</select>
 			<form:errors path="gradoMinusvalia" element="div" id="rojo" />
-		</div>
+		</div>				
 	</div>
-
-
 
 	<div class="form-row">
 		 <div class="form-group col-md-4 pr-md-3">
@@ -659,14 +652,13 @@
 		<div class="form-group col-md-4 pr-md-3">
 			<label for="fechaInicio"><spring:message
 					code="label.fechaInicio" /><span style="color: red">*</span></label>
-			<form:input path="fechaInicio" class="form-control form-control-sm datepicker" data-date-format="dd-mm-yyyy" placeholder="dd-mm-aaaa" />
-			<form:errors path="fechaInicio" element="div" id="rojo" />
+			<form:input path="fechaInicioS" class="form-control form-control-sm datepicker" data-date-format="dd/mm/yyyy" placeholder="dd/mm/aaaa" />
+			<form:errors path="fechaInicioS" element="div" id="rojo" />
 		</div>
 		<div class="form-group col-md-4 pr-md-3">
 			<label for="fechaFin"><spring:message code="label.fechaFin" /></label>
-			<form:input path="fechaFin" class="form-control form-control-sm datepicker" data-date-format="dd-mm-yyyy" placeholder="dd-mm-aaaa" />
-			<form:errors path="fechaFin" element="div" id="rojo" />
-			<span style="color:red; font-size: 0.8rem">Rellenar sólo en caso de haber finalizado los estudios</span>
+			<form:input path="fechaFinS" class="form-control form-control-sm datepicker" data-date-format="dd/mm/yyyy" placeholder="dd/mm/aaaa" />
+			<form:errors path="fechaFinS" element="div" id="rojo" />			
 		</div>
 	</div>
 	<div class="form-row">
@@ -688,8 +680,7 @@
 	</div>
 
 <br>
-
-	<a href="./listadoEstudiantes1.do" class="btn btn-rounded btn-secondary btn-sm"><em class="fas fa-times-circle"></em>&nbsp;&nbsp;Cancelar</a>
+	
 	<button type="submit" class="btn btn-rounded btn-success btn-sm">
 		<em class="fas fa-save"></em> &nbsp;&nbsp;Guardar
 	</button>
@@ -705,7 +696,7 @@
         todayHighlight: true,
         language: 'es',
     });
-    // $('.datepicker').datepicker("setDate", new Date());
+    //$('.datepicker').datepicker("setDate", new Date());
     
 </script>    
     

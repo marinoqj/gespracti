@@ -11,8 +11,12 @@
 <div class="row p-sup-60">
 	<div class="col-md-3 col-lg-4">&nbsp;</div>
 	<div class="col-md-6 col-lg-4">
+	
+		<c:set var="action">
+			<spring:url value="/login.do"/>
+		</c:set>
 		
- 		<form class="shadow p-3 mb-5 bg-white rounded text-center border" action="login.do" method="post">	
+ 		<form class="shadow p-3 mb-5 bg-white rounded text-center border" action="${action}" method="post">	
  		<div class="p-4">
 
 			<span class="h4 mb-4">${titulo}</span>
@@ -47,6 +51,17 @@
 </div>
 
 <br>
+
+<div class="row">
+	<div class="col-md-3 col-lg-4">&nbsp;</div>
+	<div class="col-md-6 col-lg-4 align-middle">Usuario de prueba: ${usuarioPrueba}</div>
+	<div class="col-md-3 col-lg-4">&nbsp;</div>
+</div>
+<div class="row">
+	<div class="col-md-3 col-lg-4">&nbsp;</div>
+	<div class="col-md-6 col-lg-4 align-middle">Password: ${passwordPrueba}</div>
+	<div class="col-md-3 col-lg-4">&nbsp;</div>
+</div>
 
 <c:if test="${not empty mensaje}">
 <div class="row">
