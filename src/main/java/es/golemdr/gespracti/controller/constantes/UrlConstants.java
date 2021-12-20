@@ -8,6 +8,7 @@ public class UrlConstants {
 	}
 
 
+	public static final String URL_VER_LOGIN_PERSONALIZADO = "/verLogin{tipoPortal}.do";
 	public static final String URL_LOGIN = "/login.do";
 	public static final String URL_DENIED = "/denied.do";
 	public static final String URL_LOGIN_CONTROLLER = "/loginController.do";
@@ -23,6 +24,7 @@ public class UrlConstants {
 	public static final String SUFIJO_PAGINACION = 	"{inicio}.do";
 
 	
+	public static final String ACCESO_PUBLICO =  "/pub";	
 	public static final String SEGURIDAD_EMPRESAS =  "/sec";	
 	public static final String SEGURIDAD_ESTUDIANTES =  "/sec";	
 	public static final String SEGURIDAD_CONSTANTES =  "/sec";	 
@@ -36,7 +38,7 @@ public class UrlConstants {
 	// Empresas
 	public static final String URL_LISTADO_EMPRESAS = SEGURIDAD_EMPRESAS + "/listadoEmpresas" + SUFIJO_PAGINACION;
 	public static final String URL_LISTADO_EMPRESAS_FILTRADO = SEGURIDAD_EMPRESAS + "/listadoEmpresasFiltrado" + SUFIJO_PAGINACION;
-	public static final String URL_ALTA_EMPRESA = SEGURIDAD_EMPRESAS + "/altaEmpresa.do";
+	public static final String URL_ALTA_EMPRESA = ACCESO_PUBLICO + "/altaEmpresa.do";
 	public static final String URL_INSERTAR_EMPRESA = SEGURIDAD_EMPRESAS + "/insertarEmpresa.do";
 	public static final String URL_EDITAR_EMPRESA = SEGURIDAD_EMPRESAS + "/editarEmpresa.do";
 	public static final String URL_ACTUALIZAR_EMPRESA = SEGURIDAD_EMPRESAS + "/actualizarEmpresa.do";
@@ -49,8 +51,8 @@ public class UrlConstants {
 	// Estudiantes
 	public static final String URL_LISTADO_ESTUDIANTES = SEGURIDAD_ESTUDIANTES + "/listadoEstudiantes" + SUFIJO_PAGINACION;
 	public static final String URL_LISTADO_ESTUDIANTES_FILTRADO = SEGURIDAD_ESTUDIANTES + "/listadoEstudiantesFiltrado" + SUFIJO_PAGINACION;
-	public static final String URL_ALTA_ESTUDIANTE = SEGURIDAD_ESTUDIANTES + "/altaEstudiante.do";
-	public static final String URL_INSERTAR_ESTUDIANTE = SEGURIDAD_ESTUDIANTES + "/insertarEstudiante.do";
+	public static final String URL_ALTA_ESTUDIANTE = ACCESO_PUBLICO + "/altaEstudiante.do";
+	public static final String URL_INSERTAR_ESTUDIANTE = ACCESO_PUBLICO + "/insertarEstudiante.do";
 	public static final String URL_EDITAR_ESTUDIANTE = SEGURIDAD_ESTUDIANTES + "/editarEstudiante.do";
 	public static final String URL_ACTUALIZAR_ESTUDIANTE = SEGURIDAD_ESTUDIANTES + "/actualizarEstudiante.do";
 	public static final String URL_BORRAR_ESTUDIANTE = SEGURIDAD_ESTUDIANTES + "/borrarEstudiante.do";

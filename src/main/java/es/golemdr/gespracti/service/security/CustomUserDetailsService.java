@@ -36,29 +36,29 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 		// TODO -Hacer que funcione con JPA
 		
-		//datosUsuario = usuariosRepository.find(example).get();
+		datosUsuario = usuariosRepository.findOne(example).get();
 		
-		datosUsuario = usuariosRepository.recuperarUsuarioLogin(login);
+		//datosUsuario = usuariosRepository.recuperarUsuarioLogin(login);
 
 		if (datosUsuario == null) {
 
 			throw new UsernameNotFoundException("Usuario no encontrado");
 		}
 
-//		if (datosUsuario.getRoles().size() > 0) {
-//
-//			rolesUsuario = new String[datosUsuario.getRoles().size()];
-//
-//			for (int i = 0; i < datosUsuario.getRoles().size(); i++) {
-//
-//				rolesUsuario[i] = datosUsuario.getRoles().get(i).getNombreRol();
-//
-//			}
-//
-//		}
+		if (datosUsuario.getRoles().size() > 0) {
+
+			rolesUsuario = new String[datosUsuario.getRoles().size()];
+
+			for (int i = 0; i < datosUsuario.getRoles().size(); i++) {
+
+				rolesUsuario[i] = datosUsuario.getRoles().get(i).getNombreRol();
+
+			}
+
+		}
 		
-		rolesUsuario = new String[1];
-		rolesUsuario[0] = "ADMIN";
+//		rolesUsuario = new String[1];
+//		rolesUsuario[0] = "ADMIN";
 		
 
 		UserDetails securityUser = User.withUsername(login).password(new BCryptPasswordEncoder().encode(datosUsuario.getPassword())).roles(rolesUsuario).build();

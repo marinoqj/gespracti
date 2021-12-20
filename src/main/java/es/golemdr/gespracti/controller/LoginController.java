@@ -10,6 +10,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import es.golemdr.gespracti.controller.constantes.ForwardConstants;
@@ -26,6 +27,23 @@ public class LoginController {
 
 	@Autowired
 	private UsuariosService usuariosService;
+	
+	@GetMapping(value=UrlConstants.URL_VER_LOGIN_PERSONALIZADO)
+	public String verLoginPersonalizado(@PathVariable("tipoPortal") String tipoPortal ,Model model,HttpServletRequest request) {
+		
+		if(tipoPortal.equals("ESTUDIANTE")) {
+			
+			model.addAttribute("titulo", "Portal de Estudiantes");
+			model.addAttribute("paginaRegistro", "pub/altaEstudiante.do");
+			
+		}else if(tipoPortal.equals("EMPRESA")) {
+			
+			model.addAttribute("titulo", "Portal de Empresas");
+			model.addAttribute("paginaRegistro", "pub/altaEmpresa.do");
+		}
+		
+		return ForwardConstants.FWD_LOGIN;
+	}
 	
 	@GetMapping(value=UrlConstants.URL_LOGIN)
 	public String verlogin(Model model,HttpServletRequest request) {

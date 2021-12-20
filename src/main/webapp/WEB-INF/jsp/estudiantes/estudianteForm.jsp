@@ -669,6 +669,23 @@
 			<span style="color:red; font-size: 0.8rem">Rellenar sólo en caso de haber finalizado los estudios</span>
 		</div>
 	</div>
+	<div class="form-row">
+		<div class="form-group col-md-4 pr-md-3">
+			<label for="login">Login<span style="color: red">*</span></label>
+			<form:input path="login" class="form-control form-control-sm" />
+			<form:errors path="login" element="div" id="rojo" />
+		</div>
+		<div class="form-group col-md-4 pr-md-3">
+			<label for="password">Password<span style="color: red">*</span></label>
+			<form:password path="password" class="form-control form-control-sm" />
+			<form:errors path="password" element="div" id="rojo" />
+		</div>
+		<div class="form-group col-md-4 pr-md-3">
+			<label for="repassword">Repita la password<span style="color: red">*</span></label>
+			<form:password path="repassword" class="form-control form-control-sm" />
+			<form:errors path="repassword" element="div" id="rojo" />
+		</div>
+	</div>
 
 <br>
 

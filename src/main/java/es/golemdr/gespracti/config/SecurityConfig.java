@@ -12,6 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import es.golemdr.gespracti.domain.Roles;
 import es.golemdr.gespracti.service.security.CustomUserDetailsService;
 
 
@@ -42,10 +43,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	    @Override
 	    protected void configure(HttpSecurity http) throws Exception {
 	        http.authorizeRequests()
-	        .antMatchers("/", "/login**", "/static/**")
+	        .antMatchers("/", "/verLogin**", "/login**", "/static/**", "/pub/**")
 	            .permitAll()
-	        .antMatchers("/**")
-	            .hasAnyRole("ADMIN", "USER")
+	        .antMatchers("/sec/**")
+	            .hasAnyRole(Roles.ESTUDIANTE.getNombreRol(), "ADMIN", "USER")
 	        .and()
 	            .formLogin()
 	            .loginPage("/login.do")
