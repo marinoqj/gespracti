@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col text-center">
                 <h3 class="font-weight-bold">Gestión de Prácticas de la UPM</h3>
-                <p class="pink-text">Seleccione un portal dependiendo de su perfil</p>
+                <p class="pink-text">Seleccione un portal según su perfil</p>
             </div>
         </div>
 
