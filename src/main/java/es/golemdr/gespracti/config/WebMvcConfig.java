@@ -39,8 +39,10 @@ import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 import org.springframework.web.util.UrlPathHelper;
 
+import es.golemdr.gespracti.controller.constantes.ForwardConstants;
 import es.golemdr.gespracti.controller.constantes.UrlConstants;
 import es.golemdr.gespracti.ext.exceptions.resolver.CustomExceptionResolver;
+
 
 
 
@@ -66,9 +68,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
-		//registry.addViewController("/").setViewName("Login");
+		registry.addViewController("/").setViewName(ForwardConstants.FWD_INICIO_PORTALES);
 		// Para redirigir a una accion
-		registry.addRedirectViewController("/", UrlConstants.URL_ENTRADA_APLICACION);
+		//registry.addRedirectViewController("/", UrlConstants.URL_ENTRADA_APLICACION);
 	}
 
 

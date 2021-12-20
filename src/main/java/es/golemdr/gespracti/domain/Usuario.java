@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -25,9 +26,12 @@ public class Usuario{
 	private String login;
 	private String password;
 	private String cambiarPassword;
-
+	
 	private List<Rol> roles= new ArrayList<>(0);
 
+	private Estudiante estudiante;
+	private Empresa empresa;
+	
 @Id
 @GeneratedValue(strategy=GenerationType.IDENTITY)
 @Column(name="ID_USUARIO")
@@ -67,6 +71,21 @@ public List<Rol> getRoles() {
 }
 public void setRoles(List<Rol> roles) {
 	this.roles = roles;
+}
+
+@OneToOne(mappedBy = "usuario")
+public Estudiante getEstudiante() {
+	return estudiante;
+}
+public void setEstudiante(Estudiante estudiante) {
+	this.estudiante = estudiante;
+}
+@OneToOne(mappedBy = "usuario")
+public Empresa getEmpresa() {
+	return empresa;
+}
+public void setEmpresa(Empresa empresa) {
+	this.empresa = empresa;
 }
 
 

@@ -1,15 +1,6 @@
 <%@ include file="/WEB-INF/jsp/common/include_taglib.jsp" %>
 
 
-<!-- Banner de la página de Login -->
-
-<nav class="navbar navbar-expand-lg navbar-light fixed-top scrolling-navbar" style="background-color: #1867b7;">
-<div class="container">
-	<a class="navbar-brand" href="#"> <img src='<spring:url value="/static/imagenes/upm-logo.png"/>' class="d-inline-block"></a>
-</div>
-</nav>			
-			
-<!-- FIN Menú -->
 
 <br>
 <br>
@@ -24,7 +15,7 @@
  		<form class="shadow p-3 mb-5 bg-white rounded text-center border" action="login.do" method="post">	
  		<div class="p-4">
 
-			<span class="h4 mb-4">Acceso a la aplicación</span>
+			<span class="h4 mb-4">${titulo}</span>
 			<br><br>
 			<img src='<spring:url value="/static/imagenes/user-circle-solid.png"/>' height="100" width="100">
 			<br><br>
@@ -51,7 +42,7 @@
 
 <div class="row">
 	<div class="col-md-3 col-lg-4">&nbsp;</div>
-	<div class="col-md-6 col-lg-4 align-middle">a -> 1</div>
+	<div class="col-md-6 col-lg-4 align-middle">Si no está dado de alta registrese <a href="${paginaRegistro}">aquí</a></div>
 	<div class="col-md-3 col-lg-4">&nbsp;</div>
 </div>
 

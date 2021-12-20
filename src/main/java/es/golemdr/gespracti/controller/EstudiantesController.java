@@ -24,6 +24,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import es.golemdr.gespracti.controller.constantes.ForwardConstants;
 import es.golemdr.gespracti.controller.constantes.UrlConstants;
 import es.golemdr.gespracti.domain.Estudiante;
+import es.golemdr.gespracti.domain.Rol;
+import es.golemdr.gespracti.domain.Roles;
+import es.golemdr.gespracti.domain.Usuario;
 import es.golemdr.gespracti.domain.form.EstudianteForm;
 import es.golemdr.gespracti.ext.Constantes;
 import es.golemdr.gespracti.ext.utils.paginacion.PaginacionBean;
@@ -83,6 +86,20 @@ public class EstudiantesController {
 		try {
 
 			BeanUtils.copyProperties(entity, formulario);
+			
+			Usuario usuario = new Usuario();
+			usuario.setLogin(formulario.getLogin());
+			usuario.setPassword(formulario.getPassword());
+			usuario.setCambiarPassword(Constantes.NO);
+			
+			Rol rol = new Rol();
+			rol.setIdRol(Roles.ESTUDIANTE.getIdRol());
+			
+			usuario.getRoles().add(rol);
+			
+			entity.setUsuario(usuario);
+			
+			
 
 		} catch (IllegalAccessException | InvocationTargetException e) {
 
@@ -91,8 +108,10 @@ public class EstudiantesController {
 
 
 		estudiantesService.insertarActualizarEstudiante(entity);
+		
+		model.addAttribute("titulo", "Portal de Estudiantes");
 
-		return ForwardConstants.RED_LISTADO_ESTUDIANTES; 
+		return ForwardConstants.FWD_LOGIN; 
 	}
 
 

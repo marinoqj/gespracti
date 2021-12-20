@@ -13,7 +13,9 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            
             <ul class="navbar-nav mr-auto">
+            	<sec:authorize access="hasRole('ADMIN')">
                 <li class="nav-item active">
                     <a class="nav-link" href='<spring:url value="/inicio.do"/>'>Inicio <span class="sr-only">(current)</span></a>
                 </li>
@@ -45,18 +47,34 @@
 			      </li>
 			      <li class="nav-item active">
 			        <a class="nav-link" href='<spring:url value="/sec/listadoOfertas1.do"/>'>Ofertas</a>
-			      </li>			      
+			      </li>
+			    </sec:authorize>
+				<sec:authorize access="hasRole('ESTUDIANTE')">
+                <li class="nav-item active">
+                    <a class="nav-link" href='<spring:url value="/inicio.do"/>'>Inicio <span class="sr-only">(current)</span></a>
+                </li>		      
+	      		  <li class="nav-item dropdown active">
+			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          Estudiantes
+			        </a>
+			        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="#">Ofertas de prácticas</a>
+						<a class="dropdown-item" href="#">Mi CV</a>
+						<a class="dropdown-item" href="#">Mis candidaturas</a>
+						<a class="dropdown-item" href="#">Mis prácticas</a>
+			        </div>
+			      </li>
+			    </sec:authorize>
 			    </ul>
 			    <ul class="navbar-nav">
 			      <li class="nav-item dropdown active">
-			        <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-			          aria-haspopup="true" aria-expanded="false">
-			          Margarita Salas &nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-user-circle fa-lg"></i>
+			        <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdownMenuLink-333" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          ${usuarioSesion.login} &nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-user-circle fa-lg"></i>
 			        </a>
 			        <div class="dropdown-menu dropdown-menu-right dropdown-default"
 			          aria-labelledby="navbarDropdownMenuLink-333">
 			          <a class="dropdown-item" href="#">Mi perfil</a>
-			          <a class="dropdown-item" href="#">Cerrar sesión</a>
+			          <a class="dropdown-item" href='<spring:url value="/logout.do"/>'>Cerrar sesión</a>
 			        </div>
 			      </li>
 			    </ul>
