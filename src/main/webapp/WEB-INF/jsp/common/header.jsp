@@ -44,7 +44,7 @@
 				        <a class="nav-link" href='#'>Informes</a>
 				      </li>
 				      <li class="nav-item active">
-				        <a class="nav-link" href='#'>Comunicaciones</a>
+				        <a class="nav-link" href='<spring:url value="/sec/listadoComunicaciones.do"/>'>Comunicaciones</a>
 				      </li>					      				      				      					      				      
 			    </ul>
 			    </sec:authorize>

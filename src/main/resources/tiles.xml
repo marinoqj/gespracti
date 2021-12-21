@@ -81,6 +81,19 @@
         <put-attribute name="title" value="Listado de ofertas"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/ofertas/listadoOfertas.jsp"/>
     </definition> 
+    
+    
+    <definition name="ListadoComunicaciones" extends="baseLayout">
+        <put-attribute name="title" value="Listado de comunicaciones"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/comunicaciones/listadoComunicaciones.jsp"/>
+    </definition> 
+    
+	
+    <definition name="ComunicacionesForm" extends="baseLayout">
+        <put-attribute name="title" value="Alta de comunicaciones"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/comunicaciones/comunicacionesForm.jsp"/>
+    </definition> 
+    
 	
       
 </tiles-definitions>
