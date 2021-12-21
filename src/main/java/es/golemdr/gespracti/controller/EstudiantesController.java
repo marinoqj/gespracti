@@ -13,8 +13,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.apache.commons.beanutils.BeanUtils;
+<<<<<<< HEAD
  // import org.apache.logging.log4j.LogManager;
   // import org.apache.logging.log4j.Logger;
+=======
+
+>>>>>>> c30ed365bc1928ecd978d003c89c54e5513900b9
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,7 +45,11 @@ import es.golemdr.gespracti.service.EstudiantesService;
 @Controller
 public class EstudiantesController {
 
+<<<<<<< HEAD
 	// private static Logger log = LogManager.getLogger(EstudiantesController.class);
+=======
+	
+>>>>>>> c30ed365bc1928ecd978d003c89c54e5513900b9
 
 	private static final String ESTUDIANTES = "estudiantes";
 	private static final String ESTUDIANTE = "estudiante";
@@ -126,7 +134,11 @@ public class EstudiantesController {
 
 			} catch (IllegalAccessException | InvocationTargetException e) {
 
+<<<<<<< HEAD
 				// log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
+=======
+				
+>>>>>>> c30ed365bc1928ecd978d003c89c54e5513900b9
 			}
 
 
@@ -160,7 +172,11 @@ public class EstudiantesController {
 
 		} catch (IllegalAccessException | InvocationTargetException e) {
 
+<<<<<<< HEAD
 			// log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
+=======
+			
+>>>>>>> c30ed365bc1928ecd978d003c89c54e5513900b9
 		}
 
 
@@ -210,7 +226,11 @@ public class EstudiantesController {
 
 			} catch (IllegalAccessException | InvocationTargetException e) {
 
+<<<<<<< HEAD
 				// log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
+=======
+				
+>>>>>>> c30ed365bc1928ecd978d003c89c54e5513900b9
 			}
 
 		}
@@ -254,7 +274,11 @@ public class EstudiantesController {
 
 		} catch (IllegalAccessException | InvocationTargetException e) {
 
+<<<<<<< HEAD
 			// log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
+=======
+			
+>>>>>>> c30ed365bc1928ecd978d003c89c54e5513900b9
 		}
 
 		if(total > paginacion.getElementosXpagina()){

@@ -6,7 +6,7 @@
 	<artifactId>gespracti</artifactId>
 	<name>gespracti</name>
 	<packaging>war</packaging>
-	<version>1.0.1</version>
+	<version>1.0.3</version>
 	<description>Proyecto monolitico</description>
 	
 
