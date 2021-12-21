@@ -36,5 +36,10 @@ public class ForwardConstants {
 	public static final String RED_LISTADO_OFERTAS = "redirect:listadoOfertas1.do";
 	public static final String FWD_OFERTA_FORM = "OfertaForm";
 	
+	
+	// Comunicaciones
+	public static final String FWD_LISTADO_COMUNICACIONES = "ListadoComunicaciones";
+	public static final String FWD_COMUNICACIONES_FORM = "ComunicacionesForm";
+	
 
 }

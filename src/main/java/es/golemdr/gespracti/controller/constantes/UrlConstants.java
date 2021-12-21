@@ -29,6 +29,7 @@ public class UrlConstants {
 	public static final String SEGURIDAD_ESTUDIANTES =  "/sec";	
 	public static final String SEGURIDAD_CONSTANTES =  "/sec";	 
 	public static final String SEGURIDAD_OFERTAS =  "/sec";		
+	public static final String SEGURIDAD_COMUNICACIONES =  "/sec";		
 
 	
 
@@ -80,9 +81,12 @@ public class UrlConstants {
 	public static final String URL_ACTUALIZAR_OFERTA = SEGURIDAD_OFERTAS + "/actualizarOferta.do";
 	public static final String URL_BORRAR_OFERTA = SEGURIDAD_OFERTAS + "/borrarOferta.do";
     public static final String URL_BUSCAR_OFERTAS = SEGURIDAD_OFERTAS + "/buscarOfertas.do";
-
-
-
 	
+    
+    // Comunicaciones
+    public static final String URL_LISTADO_COMUNICACIONES = SEGURIDAD_COMUNICACIONES + "/listadoComunicaciones.do";
+    public static final String URL_COMUNICACIONES_FORM = SEGURIDAD_COMUNICACIONES + "/altaComunicaciones.do";
+
+
 
 }
