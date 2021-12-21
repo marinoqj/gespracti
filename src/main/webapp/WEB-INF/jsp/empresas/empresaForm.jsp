@@ -65,7 +65,10 @@
 				      	<!--Grid column-->
 						<div class="col">
 							<div class="form-row">
-								<div class="form-group col-md-4 pr-3">
+								<div class="form-group col-md-7 pr-3">
+									<label for="denominacionSocial"><spring:message code="label.denominacionSocial"/><span style="color: red">*</span></label> <form:input path="denominacionSocial" class="form-control form-control-sm"/><form:errors path="denominacionSocial" element="div" id="rojo"/>
+								</div>							
+								<div class="form-group col-md-2 pr-3">
 									<label for="tipoDocumento"><spring:message code="label.tipoDocumento"/><span style="color: red">*</span></label> 
 <%-- 									<form:input path="tipoDocumento" class="form-control form-control-sm"/> --%>
 									<select class="form-control form-control-sm" id="tipoDocumento" name="tipoDocumento">
@@ -77,19 +80,24 @@
 					                </select>
 									<form:errors path="tipoDocumento" element="div" id="rojo"/>
 								</div>
-								<div class="form-group col-md-4 pr-3">
+								<div class="form-group col-md-3 pr-3">
 									<label for="nifNie"><spring:message code="label.nifNie"/><span style="color: red">*</span></label> <form:input path="nifNie" class="form-control form-control-sm"/><form:errors path="nifNie" element="div" id="rojo"/>
-								</div>
-								<div class="form-group col-md-4 pr-3">
-									<label for="denominacionSocial"><spring:message code="label.denominacionSocial"/><span style="color: red">*</span></label> <form:input path="denominacionSocial" class="form-control form-control-sm"/><form:errors path="denominacionSocial" element="div" id="rojo"/>
 								</div>
 							</div>
 
 
 							<div class="form-row">
-								<div class="form-group col-md-4 pr-3">
+								<div class="form-group col-md-6 pr-3">
 									<label for="denominacionComercial"><spring:message code="label.denominacionComercial"/></label> <form:input path="denominacionComercial" class="form-control form-control-sm"/><form:errors path="denominacionComercial" element="div" id="rojo"/>
 								</div>
+								<div class="form-group col-md-6 pr-3">
+									<label for="domicilioFiscal"><spring:message code="label.domicilioFiscal"/></label> <form:input path="domicilioFiscal" class="form-control form-control-sm"/><form:errors path="domicilioFiscal" element="div" id="rojo"/>
+								</div>
+
+							</div>
+
+
+							<div class="form-row">
 								<div class="form-group col-md-4 pr-3">
 									<label for="tipoPersonaJuridica"><spring:message code="label.tipoPersonaJuridica"/><span style="color: red">*</span></label> 
 <%-- 									<form:input path="tipoPersonaJuridica" class="form-control form-control-sm"/> --%>
@@ -117,34 +125,16 @@
 					                      <option value="17">W / Establecimientos permanentes de entidad no residente en España</option>						                  
 						              </select>
 									<form:errors path="tipoPersonaJuridica" element="div" id="rojo"/>
-								</div>
-								<div class="form-group col-md-4 pr-3">
-									<label for="domicilioFiscal"><spring:message code="label.domicilioFiscal"/></label> <form:input path="domicilioFiscal" class="form-control form-control-sm"/><form:errors path="domicilioFiscal" element="div" id="rojo"/>
-								</div>
-
-							</div>
-
-
-							<div class="form-row">
-								<div class="form-group col-md-6 pr-3">
+								</div>							
+								<div class="form-group col-md-3 pr-3">
 									<label for="personaContacto"><spring:message code="label.personaContacto"/><span style="color: red">*</span></label> <form:input path="personaContacto" class="form-control form-control-sm"/><form:errors path="personaContacto" element="div" id="rojo"/>
 								</div>
-								<div class="form-group col-md-6 pr-3">
+								<div class="form-group col-md-3 pr-3">
 									<label for="cargoPersonaContacto"><spring:message code="label.cargoPersonaContacto"/></label> <form:input path="cargoPersonaContacto" class="form-control form-control-sm"/><form:errors path="cargoPersonaContacto" element="div" id="rojo"/>
 								</div>
-							</div>
-
-
-							<div class="form-row">
-								<div class="form-group col-md-4 pr-3">
-									<label for="email"><spring:message code="label.email"/><span style="color: red">*</span></label> <form:input path="email" class="form-control form-control-sm"/><form:errors path="email" element="div" id="rojo"/>
-								</div>
-								<div class="form-group col-md-4 pr-3">
-									<label for="telefono"><spring:message code="label.telefono"/><span style="color: red">*</span></label> <form:input path="telefono" class="form-control form-control-sm"/><form:errors path="telefono" element="div" id="rojo"/>
-								</div>
-								<div class="form-group col-md-4 pr-3">
+								<div class="form-group col-md-2 pr-3">
 									<label for="numEmpleados"><spring:message code="label.numEmpleados"/></label> <form:input path="numEmpleados" class="form-control form-control-sm"/><form:errors path="numEmpleados" element="div" id="rojo"/>
-								</div>
+								</div>								
 							</div>
 
 
@@ -221,6 +211,15 @@
 								</div>
 							</div>
 
+
+							<div class="form-row">
+								<div class="form-group col-md-6 pr-3">
+									<label for="email"><spring:message code="label.email"/><span style="color: red">*</span></label> <form:input path="email" class="form-control form-control-sm"/><form:errors path="email" element="div" id="rojo"/>
+								</div>
+								<div class="form-group col-md-6 pr-3">
+									<label for="telefono"><spring:message code="label.telefono"/><span style="color: red">*</span></label> <form:input path="telefono" class="form-control form-control-sm"/><form:errors path="telefono" element="div" id="rojo"/>
+								</div>
+							</div>
 
 							<div class="form-row">
 								<div class="form-group col-md-12 pr-3">

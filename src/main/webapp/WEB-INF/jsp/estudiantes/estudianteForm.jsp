@@ -66,11 +66,11 @@
 		<div class="form-group col-md-3 pr-md-3">
 			<label for="sexo"><spring:message code="label.sexo" /></label>
 <%-- 			<form:input path="sexo" class="form-control form-control-sm" />--%>
-			<select class="form-control form-control-sm">
-				<option selected>---</option>
-				<option value="1">Hombre</option>
-				<option value="2">Mujer</option>
-			</select>
+			<form:select path="sexo" class="form-control form-control-sm">
+				<option value="-1">---</option>
+				<option value="1" <c:if test='${estudianteForm.sexo eq 1}'>selected</c:if>>Hombre</option>
+				<option value="2" <c:if test='${estudianteForm.sexo eq 2}'>selected</c:if>>Mujer</option>
+			</form:select>
 			<form:errors path="sexo" element="div" id="rojo" />			
 		</div>
 		<div class="form-group col-md-3 pr-md-3">
@@ -81,12 +81,12 @@
 		<div class="form-group col-md-3 pr-md-3">
 			<label for="tipoDocumento"><spring:message code="label.tipoDocumento" /><span style="color: red">*</span></label>
 <%-- 			<form:input path="tipoDocumento" class="form-control form-control-sm" />--%>
-			<select class="form-control form-control-sm">
-				<option selected>---</option>
-				<option value="1">NIF</option>
-				<option value="2">NIE</option>
-				<option value="3">Pasaporte</option>
-			</select>
+			<form:select path="tipoDocumento" class="form-control form-control-sm">
+				<option value="-1">---</option>
+				<option value="1" <c:if test='${estudianteForm.tipoDocumento eq 1}'>selected</c:if>>NIF</option>
+				<option value="2" <c:if test='${estudianteForm.tipoDocumento eq 2}'>selected</c:if>>NIE</option>
+				<option value="3" <c:if test='${estudianteForm.tipoDocumento eq 3}'>selected</c:if>>Pasaporte</option>
+			</form:select>
 			<form:errors path="tipoDocumento" element="div" id="rojo" />
 		</div>		
 		<div class="form-group col-md-3 pr-md-3">
@@ -138,11 +138,11 @@
 		</div>
 		<div class="form-group col-md-3 pr-md-3">
 			<label for="pais"><spring:message code="label.pais" /><span style="color: red">*</span></label>
-			<select class="form-control form-control-sm">
+			<form:select path="pais" class="form-control form-control-sm">
 				<option selected value="1">España</option>
 				<option value="2">Unión Europea</option>
 				<option value="3">Otros</option>
-			</select>
+			</form:select>
 			<form:errors path="pais" element="div" id="rojo" />
 		</div>
 		<div class="form-group col-md-3 pr-md-3">
@@ -154,12 +154,12 @@
 		<div class="form-group col-md-3 pr-md-3">
 			<label for="gradoMinusvalia"><spring:message code="label.gradoMinusvalia" /></label>
 <%-- 			<form:input path="gradoMinusvalia" class="form-control form-control-sm" />--%>
-			<select class="form-control form-control-sm">
-				<option selected>---</option>
+			<form:select path="gradoMinusvalia" class="form-control form-control-sm">
+				<option value="-1">---</option>
 				<option value="1">menos de 33%</option>
 				<option value="2">33%</option>
 				<option value="3">más de 33%</option>
-			</select>
+			</form:select>
 			<form:errors path="gradoMinusvalia" element="div" id="rojo" />
 		</div>				
 	</div>
@@ -168,7 +168,7 @@
 		 <div class="form-group col-md-4 pr-md-3">
 		  <label for="titulacionUpm"><spring:message code="label.titulacionUpm" /> <span style="color: red">*</span></label>
 <%-- 		  <form:input path="titulacionUpm" class="form-control form-control-sm" />--%>
-			 <select class="form-control form-control-sm" id="titulacionUpm">
+			 <form:select path="titulacionUpm" class="form-control form-control-sm" id="titulacionUpm">
 				 <option value="-1">---</option>
 				 <optgroup label="CENTRO DE LIDERAZGO Y TECNOLOGÍA UPM">
 					 <option value="484">MASTER EN LIDERAZGO INTERNACIONAL EN INGENIERÍA Y ARQUITECTURA</option>
@@ -646,7 +646,7 @@
 				 <optgroup label="Centro Virtual: Máster en Energías Renovables y Medio Ambiente">
 					 <option value="331">Máster en Energías Renovables y Medio Ambiente</option>
 				 </optgroup>
-			 </select>
+			 </form:select>
 			 <form:errors path="titulacionUpm" element="div" id="rojo" />
 		</div>
 		<div class="form-group col-md-4 pr-md-3">
@@ -661,23 +661,39 @@
 			<form:errors path="fechaFinS" element="div" id="rojo" />			
 		</div>
 	</div>
-	<div class="form-row">
-		<div class="form-group col-md-4 pr-md-3">
-			<label for="login">Login<span style="color: red">*</span></label>
-			<form:input path="login" class="form-control form-control-sm" />
-			<form:errors path="login" element="div" id="rojo" />
+	
+	<c:if test="${esAlta eq true}">
+	
+		<div class="form-row">
+			<div class="form-group col-md-4 pr-md-3">
+				<label for="login">Login<span style="color: red">*</span></label>
+				<form:input path="login" class="form-control form-control-sm" />
+				<form:errors path="login" element="div" id="rojo" />
+			</div>
+			<div class="form-group col-md-4 pr-md-3">
+				<label for="password">Password<span style="color: red">*</span></label>
+				<form:password path="password" class="form-control form-control-sm" />
+				<form:errors path="password" element="div" id="rojo" />
+			</div>
+			<div class="form-group col-md-4 pr-md-3">
+				<label for="repassword">Repita la password<span style="color: red">*</span></label>
+				<form:password path="repassword" class="form-control form-control-sm" />
+				<form:errors path="repassword" element="div" id="rojo" />
+			</div>
 		</div>
-		<div class="form-group col-md-4 pr-md-3">
-			<label for="password">Password<span style="color: red">*</span></label>
-			<form:password path="password" class="form-control form-control-sm" />
-			<form:errors path="password" element="div" id="rojo" />
-		</div>
-		<div class="form-group col-md-4 pr-md-3">
-			<label for="repassword">Repita la password<span style="color: red">*</span></label>
-			<form:password path="repassword" class="form-control form-control-sm" />
-			<form:errors path="repassword" element="div" id="rojo" />
-		</div>
-	</div>
+
+	</c:if>
+	
+	
+	<!--  Para que no pete en la edicion -->
+	<c:if test="${esAlta eq false}">
+	
+		<form:hidden path="login" value="a"/>
+		<form:hidden path="password" value="a" />
+		<form:hidden path="repassword" value="a" />
+	
+	</c:if>	
+
 
 <br>
 	

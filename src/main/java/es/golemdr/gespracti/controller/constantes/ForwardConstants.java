@@ -21,7 +21,8 @@ public class ForwardConstants {
 	// Estudiantes
 	public static final String FWD_LISTADO_ESTUDIANTES = "ListadoEstudiantes";	
 	public static final String RED_LISTADO_ESTUDIANTES = "redirect:listadoEstudiantes1.do";
-	public static final String FWD_ESTUDIANTE_FORM = "EstudianteForm";
+	public static final String FWD_ESTUDIANTE_FORM_ALTA = "EstudianteFormAlta";
+	public static final String FWD_ESTUDIANTE_FORM_EDICION = "EstudianteFormEdicion";
 	
 	
 	// Constantes
