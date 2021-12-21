@@ -6,8 +6,8 @@ import java.io.StringWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+ // import org.apache.logging.log4j.LogManager;
+  // import org.apache.logging.log4j.Logger;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 
@@ -17,7 +17,7 @@ import es.golemdr.gespracti.ext.utils.tools.GeneradorCodigo;
 
 public class CustomExceptionResolver extends SimpleMappingExceptionResolver{
 	
-	private static final Logger log = LogManager.getLogger(CustomExceptionResolver.class);
+	// private static final Logger log = LogManager.getLogger(CustomExceptionResolver.class);
 	
 	@Override
     public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
@@ -38,11 +38,11 @@ public class CustomExceptionResolver extends SimpleMappingExceptionResolver{
     	codigo = GeneradorCodigo.generaCodigoExcepcion();
     	
     	
-    	log.error(Constantes.PREFIJO_MENSAJE_TIPO_EXCEPCION,ex.getMessage());
-    	log.error(Constantes.PREFIJO_MENSAJE_CODIGO_EXCEPCION,codigo);    	
+    	// log.error(Constantes.PREFIJO_MENSAJE_TIPO_EXCEPCION,ex.getMessage());
+    	// log.error(Constantes.PREFIJO_MENSAJE_CODIGO_EXCEPCION,codigo);    	
     	
     	String trazaLog = recuperarTraza(ex, "LOG");
-    	log.error(Constantes.PREFIJO_MENSAJE_TRAZA_EXCEPCION,trazaLog);   	
+    	// log.error(Constantes.PREFIJO_MENSAJE_TRAZA_EXCEPCION,trazaLog);   	
     	
     	
     	request.setAttribute(Constantes.ATRIBUTO_MENSAJE, mensaje);

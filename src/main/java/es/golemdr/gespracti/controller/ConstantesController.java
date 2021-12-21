@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.apache.commons.beanutils.BeanUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+ // import org.apache.logging.log4j.LogManager;
+  // import org.apache.logging.log4j.Logger;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +40,7 @@ import es.golemdr.gespracti.service.ConstantesService;
 @Controller
 public class ConstantesController {
 
-	private static Logger log = LogManager.getLogger(ConstantesController.class);
+	// private static Logger log = LogManager.getLogger(ConstantesController.class);
 
 	private static final String CONSTANTES = "constantes";
 	private static final String CONSTANTE = "constante";
@@ -82,7 +82,7 @@ public class ConstantesController {
 
 		} catch (IllegalAccessException | InvocationTargetException e) {
 
-			log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
+			// log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
 		}
 
 
@@ -105,7 +105,7 @@ public class ConstantesController {
 
 		} catch (IllegalAccessException | InvocationTargetException e) {
 
-			log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
+			// log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
 		}
 
 
@@ -142,7 +142,7 @@ public class ConstantesController {
 
 			} catch (IllegalAccessException | InvocationTargetException e) {
 
-				log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
+				// log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
 			}
 
 		}
@@ -186,7 +186,7 @@ public class ConstantesController {
 
 		} catch (IllegalAccessException | InvocationTargetException e) {
 
-			log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
+			// log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
 		}
 
 		if(total > paginacion.getElementosXpagina()){

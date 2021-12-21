@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.apache.commons.beanutils.BeanUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+ // import org.apache.logging.log4j.LogManager;
+  // import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,7 +36,7 @@ import es.golemdr.gespracti.service.EmpresasService;
 @Controller
 public class EmpresasController {
 
-	private static Logger log = LogManager.getLogger(EmpresasController.class);
+	// private static Logger log = LogManager.getLogger(EmpresasController.class);
 
 	private static final String EMPRESAS = "empresas";
 	private static final String EMPRESA = "empresa";
@@ -86,7 +86,7 @@ public class EmpresasController {
 
 		} catch (IllegalAccessException | InvocationTargetException e) {
 
-			log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
+			// log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
 		}
 
 
@@ -109,7 +109,7 @@ public class EmpresasController {
 
 		} catch (IllegalAccessException | InvocationTargetException e) {
 
-			log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
+			// log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
 		}
 
 
@@ -146,7 +146,7 @@ public class EmpresasController {
 
 			} catch (IllegalAccessException | InvocationTargetException e) {
 
-				log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
+				// log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
 			}
 
 		}
@@ -190,7 +190,7 @@ public class EmpresasController {
 
 		} catch (IllegalAccessException | InvocationTargetException e) {
 
-			log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
+			// log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
 		}
 
 		if(total > paginacion.getElementosXpagina()){

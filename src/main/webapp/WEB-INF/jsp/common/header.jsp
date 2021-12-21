@@ -43,9 +43,16 @@
 				      <li class="nav-item active">
 				        <a class="nav-link" href='#'>Informes</a>
 				      </li>
-				      <li class="nav-item active">
-				        <a class="nav-link" href='<spring:url value="/sec/listadoComunicaciones.do"/>'>Comunicaciones</a>
-				      </li>					      				      				      					      				      
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Comunicaciones
+							</a>
+							<div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdown3">
+								<a class="dropdown-item" href='<spring:url value="/sec/altaComunicaciones.do"/>'>Nuevo Comunicado Masivo</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href='<spring:url value="/sec/listadoComunicaciones.do"/>'>Listado Comunicados Masivos</a>
+							</div>
+						</li>
 			    </ul>
 			    </sec:authorize>
 				<sec:authorize access="hasRole('ESTUDIANTE')">

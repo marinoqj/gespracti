@@ -16,8 +16,8 @@
 		<div class="col-md-12">
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item active"><em class="fas fa-plus-circle fa-lg mr-1"></em><em class="fas fa-shopping-bag fa-lg mr-2"></em>
-						Crear nueva promoción
+					<li class="breadcrumb-item active"><em class="fas fa-plus-circle fa-lg mr-1"></em><em class="fas fa-comment fa-lg mr-2"></em>
+						Crear nuevo Comunicado
 					</li>
 				</ol>
 			</nav>
@@ -32,7 +32,7 @@
 			<!-- Text Area -->
 			<div class="media mt-3">
 				<div class="media-body">
-					<h5 class="mt-0 grey-text">Texto promoci&oacute;n</h5>
+					<h5 class="mt-0 grey-text">Texto Comunicado</h5>
 					<div class="form-group basic-textarea rounded-corners">
 						<textarea class="form-control shadow-sm" id="exampleFormControlTextarea345" rows="3" placeholder="Escriba aquí el texto de la promoción..."></textarea>
 					</div>
@@ -44,24 +44,24 @@
 		    <div class="row">
 		        <div class="col-12 col-sm-6 pb-2">
 		            <div class="estado p-1" id="todo">
-		                <p class="cabecera">DISPONIBLES</p>
+		                <p class="cabecera">DESTINATARIOS DISPONIBLES</p>
 		                <div class="tarea shadow-sm my-1" id="tarea-01">
-		                    Mejores Clientes
+		                    Estudiantes
 		                </div>
 		                <div class="tarea shadow-sm my-1" id="tarea-02">
-		                    Clientes habituales
+		                    Egresados
 		                </div>
 		                <div class="tarea shadow-sm my-1" id="tarea-03">
-		                    Clientes poco frecuentes
+		                    Empresas
 		                </div>		                
 		                <div class="tarea shadow-sm my-1" id="tarea-04">
-		                    Clientes de una sola vez
+		                    Todos
 		                </div>		                
 		            </div>
 		        </div>
 		        <div class="col-12 col-sm-6 pb-2">
 		            <div class="estado p-1" id="doing">
-		                <p class="cabecera">LISTAS PARA ENVIAR</p>
+		                <p class="cabecera">DESTINATARIOS SELECCIONADOS</p>
 		            </div>
 		        </div>
 		    </div>
@@ -70,7 +70,7 @@
 			<br>
 			
 			 <button type="button" class="btn btn-success btn-rounded btn-sm"><i class="fas fa-save pr-2"></i>Guardar</button>
-<!-- 			 <button type="button" class="btn btn-secondary btn-rounded btn-sm"><i class="fas fa-envelope pr-2"></i>Enviar</button> -->
+			 <button type="button" class="btn btn-secondary btn-rounded btn-sm"><i class="fas fa-envelope pr-2"></i>Enviar</button>
 		</form>
 		<!-- Extended default form grid -->
 	</div>

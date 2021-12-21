@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.apache.commons.beanutils.BeanUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+ // import org.apache.logging.log4j.LogManager;
+  // import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,7 +41,7 @@ import es.golemdr.gespracti.service.EstudiantesService;
 @Controller
 public class EstudiantesController {
 
-	private static Logger log = LogManager.getLogger(EstudiantesController.class);
+	// private static Logger log = LogManager.getLogger(EstudiantesController.class);
 
 	private static final String ESTUDIANTES = "estudiantes";
 	private static final String ESTUDIANTE = "estudiante";
@@ -126,7 +126,7 @@ public class EstudiantesController {
 
 			} catch (IllegalAccessException | InvocationTargetException e) {
 
-				log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
+				// log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
 			}
 
 
@@ -160,7 +160,7 @@ public class EstudiantesController {
 
 		} catch (IllegalAccessException | InvocationTargetException e) {
 
-			log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
+			// log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
 		}
 
 
@@ -210,7 +210,7 @@ public class EstudiantesController {
 
 			} catch (IllegalAccessException | InvocationTargetException e) {
 
-				log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
+				// log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
 			}
 
 		}
@@ -254,7 +254,7 @@ public class EstudiantesController {
 
 		} catch (IllegalAccessException | InvocationTargetException e) {
 
-			log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
+			// log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
 		}
 
 		if(total > paginacion.getElementosXpagina()){
