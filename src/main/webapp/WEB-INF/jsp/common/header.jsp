@@ -19,35 +19,33 @@
                 <li class="nav-item active">
                     <a class="nav-link" href='<spring:url value="/inicio.do"/>'>Inicio <span class="sr-only">(current)</span></a>
                 </li>
-	      		  <li class="nav-item dropdown active">
-			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			          Empresas
-			        </a>
-			        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href='<spring:url value="/sec/listadoEmpresas1.do"/>'>Listado empresas</a>
-						<a class="dropdown-item" href="#">Prácticas en curso</a>
-						<a class="dropdown-item" href="#">Ofertas</a>
-						<a class="dropdown-item" href="#">Mis tareas</a>
-			        </div>
-			      </li>				      
-	      		  <li class="nav-item dropdown active">
-			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			          Estudiantes
-			        </a>
-			        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						 <a class="dropdown-item" href='<spring:url value="/sec/listadoEstudiantes1.do"/>'>Listado estudiantes</a>
-						<a class="dropdown-item" href="#">Ofertas de prácticas</a>
-						<a class="dropdown-item" href="#">Mi CV</a>
-						<a class="dropdown-item" href="#">Mis candidaturas</a>
-						<a class="dropdown-item" href="#">Mis prácticas</a>
-			        </div>
-			      </li>
-			      <li class="nav-item active">
-			        <a class="nav-link" href='<spring:url value="/sec/listadoConstantes1.do"/>'>Constantes</a>
-			      </li>
-			      <li class="nav-item active">
-			        <a class="nav-link" href='<spring:url value="/sec/listadoOfertas1.do"/>'>Ofertas</a>
-			      </li>
+	                <li class="nav-item">
+	                    <a class="nav-link" href='<spring:url value="/sec/listadoEmpresas1.do"/>'>Empresas</a>
+	                </li>                
+	                <li class="nav-item">
+	                    <a class="nav-link" href='<spring:url value="/sec/listadoEstudiantes1.do"/>'>Candidatos</a>
+	                </li>                
+				      <li class="nav-item active">
+				        <a class="nav-link" href='<spring:url value="/sec/listadoOfertas1.do"/>'>Ofertas</a>
+				      </li>
+				      <li class="nav-item active">
+				        <a class="nav-link" href='#'>Prácticas</a>
+				      </li>				      
+				      <li class="nav-item active">
+				        <a class="nav-link" href='#'>Tutores</a>
+				      </li>
+				      <li class="nav-item active">
+				        <a class="nav-link" href='#'>Estudios</a>
+				      </li>
+				      <li class="nav-item active">
+				        <a class="nav-link" href='#'>Usuarios</a>
+				      </li>	
+				      <li class="nav-item active">
+				        <a class="nav-link" href='#'>Informes</a>
+				      </li>
+				      <li class="nav-item active">
+				        <a class="nav-link" href='#'>Comunicaciones</a>
+				      </li>					      				      				      					      				      
 			    </ul>
 			    </sec:authorize>
 				<sec:authorize access="hasRole('ESTUDIANTE')">
@@ -56,17 +54,56 @@
 	                    <a class="nav-link" href='<spring:url value="/inicio.do"/>'>Inicio <span class="sr-only">(current)</span></a>
 	                </li>
 	                <li class="nav-item">
-	                    <a class="nav-link" href='<spring:url value="/inicio.do"/>'>Ofertas de prácticas</a>
+	                    <a class="nav-link" href='<spring:url value="/inicio.do"/>'>Ofertas de prácticas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 	                </li>
 	                <li class="nav-item">
-	                    <a class="nav-link" href='<spring:url value="/inicio.do"/>'>Mi CV</a>
+	                    <a class="nav-link" href='<spring:url value="/inicio.do"/>'>Mi CV&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 	                </li>
 	                <li class="nav-item">
-	                    <a class="nav-link" href='<spring:url value="/inicio.do"/>'>Mis candidaturas</a>
+	                    <a class="nav-link" href='<spring:url value="/inicio.do"/>'>Mis candidaturas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 	                </li>
 	                <li class="nav-item">
 	                    <a class="nav-link" href='<spring:url value="/inicio.do"/>'>Mis prácticas</a>
 	                </li>                
+			    </ul>
+			    </sec:authorize>
+			    <sec:authorize access="hasRole('TUTOR')">
+				<ul class="navbar-nav mr-auto">
+	                <li class="nav-item active">
+	                    <a class="nav-link" href='<spring:url value="/inicio.do"/>'>Inicio <span class="sr-only">(current)</span></a>
+	                </li>
+      		 	 <li class="nav-item dropdown">
+			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			         Prácticas tutorizadas
+			        </a>
+			        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="#">Activas</a>
+						<a class="dropdown-item" href="#">Histórico</a>
+			        </div>
+			      </li>
+			    </ul>
+			    </sec:authorize>
+			    <sec:authorize access="hasRole('EMPRESA')">
+				<ul class="navbar-nav mr-auto">
+	                <li class="nav-item active">
+	                    <a class="nav-link" href='<spring:url value="/inicio.do"/>'>Inicio <span class="sr-only">(current)</span></a>
+	                </li>
+      		 	 <li class="nav-item dropdown">
+			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          Ofertas
+			        </a>
+			        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="#">Nueva oferta</a>
+						<a class="dropdown-item" href="#">Ofertas vigentes</a>
+						<a class="dropdown-item" href="#">Histórico</a>
+			        </div>
+			      </li>
+	                <li class="nav-item">
+	                    <a class="nav-link" href='#'>Prácticas</a>
+	                </li>
+	                <li class="nav-item">
+	                    <a class="nav-link" href='#'>Mis tareas</a>
+	                </li>
 			    </ul>
 			    </sec:authorize>			    
 			    <ul class="navbar-nav">
