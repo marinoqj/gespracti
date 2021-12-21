@@ -49,8 +49,13 @@
 
 
     <!-- Estudiantes -->
-    <definition name="EstudianteForm" extends="loginLayout">
+    <definition name="EstudianteFormAlta" extends="loginLayout">
         <put-attribute name="title" value="Alta de estudiantes"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/estudiantes/estudianteForm.jsp"/>
+    </definition>
+    
+    <definition name="EstudianteFormEdicion" extends="baseLayout">
+        <put-attribute name="title" value="Edicion de estudiantes"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/estudiantes/estudianteForm.jsp"/>
     </definition>
 

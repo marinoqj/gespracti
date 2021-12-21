@@ -76,8 +76,9 @@ public class EstudiantesController {
 
 		map.put("modo", "insertar");
 		map.put("estudianteForm",new EstudianteForm());
+		map.put("esAlta", true);
 
-		return ForwardConstants.FWD_ESTUDIANTE_FORM;
+		return ForwardConstants.FWD_ESTUDIANTE_FORM_ALTA;
 	}
 	
 
@@ -90,7 +91,7 @@ public class EstudiantesController {
 		if (result.hasErrors()) {
 
 			model.addAttribute("modo", "insertar");
-			destino =  ForwardConstants.FWD_ESTUDIANTE_FORM;
+			destino =  ForwardConstants.FWD_ESTUDIANTE_FORM_ALTA;
 			
 		}else {
 			
@@ -151,6 +152,11 @@ public class EstudiantesController {
 		try {
 
 			BeanUtils.copyProperties(formulario, entity);
+			
+			// Copio las fechas
+			formulario.setFechaNacimientoS(FormateadorFechas.date2String(entity.getFechaNacimiento()));
+			formulario.setFechaInicioS(FormateadorFechas.date2String(entity.getFechaInicio()));
+			formulario.setFechaFinS(FormateadorFechas.date2String(entity.getFechaFin()));
 
 		} catch (IllegalAccessException | InvocationTargetException e) {
 
@@ -159,14 +165,15 @@ public class EstudiantesController {
 
 
 		map.put("modo", "actualizar");
-		map.put(ESTUDIANTE,formulario);
+		map.put("estudianteForm",formulario);
+		map.put("esAlta", false);
 
-		return ForwardConstants.FWD_ESTUDIANTE_FORM;
+		return ForwardConstants.FWD_ESTUDIANTE_FORM_EDICION;
 	}
 
 
 	@PostMapping(value=UrlConstants.URL_ACTUALIZAR_ESTUDIANTE)
-	public String actualizar(@Valid EstudianteForm formulario, BindingResult result, Model model) {
+	public String actualizar(@Valid EstudianteForm formulario, BindingResult result, Model model) throws ParseException {
 
 
 		String destino = null;
@@ -174,7 +181,7 @@ public class EstudiantesController {
 		if (result.hasErrors()) {
 
 			model.addAttribute("modo", "actualizar");
-			destino = ForwardConstants.FWD_ESTUDIANTE_FORM;
+			destino = ForwardConstants.FWD_ESTUDIANTE_FORM_EDICION;
 
 		}else{
 
@@ -183,7 +190,19 @@ public class EstudiantesController {
 			try {
 
 				BeanUtils.copyProperties(entity, formulario);
+				
+				String fechaFormateada = null;
+				
+				fechaFormateada = FormateadorFechas.cambiaFormato(formulario.getFechaNacimientoS(), "dd/MM/yyyy", "yyyy-MM-dd");
+				entity.setFechaNacimiento(Date.valueOf(fechaFormateada));
+				
+				fechaFormateada = FormateadorFechas.cambiaFormato(formulario.getFechaInicioS(), "dd/MM/yyyy", "yyyy-MM-dd");
+				entity.setFechaInicio(Date.valueOf(fechaFormateada));
+				
+				fechaFormateada = FormateadorFechas.cambiaFormato(formulario.getFechaFinS(), "dd/MM/yyyy", "yyyy-MM-dd");
+				entity.setFechaFin(Date.valueOf(fechaFormateada));
 
+				
 				estudiantesService.insertarActualizarEstudiante(entity);
 
 				destino = ForwardConstants.RED_LISTADO_ESTUDIANTES;
