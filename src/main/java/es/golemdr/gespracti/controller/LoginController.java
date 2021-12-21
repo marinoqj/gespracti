@@ -3,8 +3,7 @@ package es.golemdr.gespracti.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -23,7 +22,7 @@ import es.golemdr.gespracti.service.UsuariosService;
 @Controller
 public class LoginController {
 	
-	private static final Logger log = LogManager.getLogger(LoginController.class);
+	
 
 	@Autowired
 	private UsuariosService usuariosService;
@@ -113,7 +112,7 @@ public class LoginController {
 			HttpSession session = request.getSession(false);
 			session.setAttribute(Constantes.ATRIBUTO_SESSION_USUARIO, usuarioLogado);
 			
-			log.info(Constantes.USUARIO_LOGADO_CORRECTAMENTE, usuarioLogado.getLogin());
+			
 			
 			destino = ForwardConstants.FWD_HOME;
 

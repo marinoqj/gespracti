@@ -11,8 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.apache.commons.beanutils.BeanUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +39,7 @@ import es.golemdr.gespracti.service.OfertasService;
 @Controller
 public class OfertasController {
 
-	private static Logger log = LogManager.getLogger(OfertasController.class);
+	
 
 	private static final String OFERTAS = "ofertas";
 	private static final String OFERTA = "oferta";
@@ -82,7 +81,7 @@ public class OfertasController {
 
 		} catch (IllegalAccessException | InvocationTargetException e) {
 
-			log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
+			
 		}
 
 
@@ -105,7 +104,7 @@ public class OfertasController {
 
 		} catch (IllegalAccessException | InvocationTargetException e) {
 
-			log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
+			
 		}
 
 
@@ -142,7 +141,7 @@ public class OfertasController {
 
 			} catch (IllegalAccessException | InvocationTargetException e) {
 
-				log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
+				
 			}
 
 		}
@@ -186,7 +185,7 @@ public class OfertasController {
 
 		} catch (IllegalAccessException | InvocationTargetException e) {
 
-			log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
+			
 		}
 
 		if(total > paginacion.getElementosXpagina()){
