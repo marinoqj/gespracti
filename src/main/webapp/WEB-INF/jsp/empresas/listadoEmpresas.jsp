@@ -167,8 +167,12 @@ $(document).ready(function(){
 
 		<div class="row">
 			<div class="col-md-12">
-				<a href='<spring:url value="/sec/altaEmpresa.do"/>' class="btn btn-rounded btn-primary btn-sm"><em class="fas fa-plus-circle"></em>&nbsp;&nbsp;Nueva</a>
-				<button type="button" class="btn btn-rounded btn-success btn-sm" data-toggle="modal" data-target="#ventanaBuscar"><em class="fas fa-search"></em> &nbsp;&nbsp;Buscar</button>
+				<sec:authorize access="hasRole('ADMIN')">
+					<a href='<spring:url value="/sec/gestor/altaEmpresa.do"/>' class="btn btn-rounded btn-primary btn-sm"><em class="fas fa-plus-circle"></em>&nbsp;&nbsp;Nueva</a>
+				</sec:authorize>
+				<sec:authorize access="hasRole('EMPRESA')">
+					<a href='<spring:url value="/sec/altaEmpresa.do"/>' class="btn btn-rounded btn-primary btn-sm"><em class="fas fa-plus-circle"></em>&nbsp;&nbsp;Nueva</a>
+				</sec:authorize>
 			</div>
 		</div>
 

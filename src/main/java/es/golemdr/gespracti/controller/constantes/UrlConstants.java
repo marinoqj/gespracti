@@ -87,6 +87,8 @@ public class UrlConstants {
     public static final String URL_LISTADO_COMUNICACIONES = SEGURIDAD_COMUNICACIONES + "/listadoComunicaciones.do";
     public static final String URL_COMUNICACIONES_FORM = SEGURIDAD_COMUNICACIONES + "/altaComunicaciones.do";
 
-
+    // Gestor
+    public static final String URL_ALTA_ESTUDIANTE_GESTOR = "/sec/gestor/altaEstudiante.do";
+    public static final String URL_ALTA_EMPRESA_GESTOR = "/sec/gestor/altaEmpresa.do";
 
 }

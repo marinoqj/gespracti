@@ -99,6 +99,17 @@
         <put-attribute name="body"  value="/WEB-INF/jsp/comunicaciones/comunicacionesForm.jsp"/>
     </definition> 
     
+    
+     <definition name="EstudianteFormAltaGestor" extends="baseLayout">
+        <put-attribute name="title" value="Alta de Estudiante - Gestor"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/estudiantes/estudianteForm.jsp"/>
+    </definition> 
+    
+	
+     <definition name="EmpresaFormAltaGestor" extends="baseLayout">
+        <put-attribute name="title" value="Alta de Empresa - Gestor"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/empresas/empresaForm.jsp"/>
+    </definition> 
 	
       
 </tiles-definitions>

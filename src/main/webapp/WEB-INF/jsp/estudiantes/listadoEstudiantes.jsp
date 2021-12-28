@@ -166,8 +166,13 @@ $(document).ready(function(){
 
 		<div class="row">
 			<div class="col-md-12">
+			<sec:authorize access="hasRole('ADMIN')">
+				<a href='<spring:url value="/sec/gestor/altaEstudianteGestor.do"/>' class="btn btn-rounded btn-primary btn-sm"><em class="fas fa-plus-circle"></em>&nbsp;&nbsp;Nuevo</a>
+			</sec:authorize>
+			<sec:authorize access="hasRole('ESTUDIANTE')">
 				<a href='<spring:url value="/sec/altaEstudiante.do"/>' class="btn btn-rounded btn-primary btn-sm"><em class="fas fa-plus-circle"></em>&nbsp;&nbsp;Nuevo</a>
-				<button type="button" class="btn btn-rounded btn-success btn-sm" data-toggle="modal" data-target="#ventanaBuscar"><em class="fas fa-search"></em> &nbsp;&nbsp;Buscar</button>
+			</sec:authorize>
+
 			</div>
 		</div>
 
