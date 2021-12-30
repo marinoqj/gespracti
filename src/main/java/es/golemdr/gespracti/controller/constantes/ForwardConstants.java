@@ -26,7 +26,7 @@ public class ForwardConstants {
 	public static final String FWD_ESTUDIANTE_FORM_ALTA = "EstudianteFormAlta";
 	public static final String FWD_ESTUDIANTE_FORM_EDICION = "EstudianteFormEdicion";
 	
-	public static final String FWD_ESTUDIANTE_FORM_ALTA_GESTOR = "EstudianteFormAltaGestor";
+	public static final String FWD_ESTUDIANTE_FORM_ALTA_GESTOR = "estudiantes/estudiante-form";
 
 	
 	

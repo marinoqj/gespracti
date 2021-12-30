@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- DATEPICKER -->
+	<link rel="stylesheet" type="text/css" th:href="@{/static/css/bootstrap-datepicker.min.css}" media="all" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/bootstrap.4.5.min.css}" media="all" />
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/mdb.min.css}" media="all" />
+    
+	<link rel="stylesheet" type="text/css" th:href="@{/static/css/estilo.css}" media="all" />
+	<!-- FONTAWESOME 5.11 -->
+	<link rel="stylesheet" type="text/css" th:href="@{/static/css/all.min.css}" media="all" />
+	
+	
+	<!-- SCRIPTS -->
+	<script type="text/javascript" th:src="@{/static/js/jquery-3.3.1.min.js}" ></script>
+	<script type="text/javascript" th:src="@{/static/js/bootstrap-datepicker.min.js}" ></script>
+	<script type="text/javascript" th:src="@{/static/js/locales/bootstrap-datepicker.es.js}" charset="UTF-8"></script>
+	
+
+    <title>Formulario de Alta de Estudiante</title>
+  </head>
+  <body>
+
+<div class="container">
+    <form id="formulario_estudiante" th:action="${modo} + Estudiante.do" th:object="${estudianteForm}" method="post">
+    
+    <br>
+	<br>
+	<br>
+	<br>
+	
+	<div class="row  p-sup-20">
+		<div class="col-md-12">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item active">
+						<em th:if="${modo eq 'insertar'}" class="fas fa-plus-circle fa-lg mr-1"></em>
+						<em th:if="${modo eq 'actualizar'}" class="fas fa-pen fa-lg mr-1"></em>
+						<em class="fas fa-user-graduate  fa-lg mr-2"></em>
+						<span th:if="${modo eq 'insertar'}" th:text="#{label.alta.estudiante}" />
+						<span th:if="${modo eq 'actualizar'}" th:text="#{label.editar.estudiante}" />
+					</li>
+				</ol>
+			</nav>
+		</div>
+	</div>
+
+	<input th:if="${modo eq 'actualizar'}" type="hidden" th:field="*{idEstudiante}">
+	
+	<!-- Nombre, Apellidos -->
+	<div class="form-row">
+		<div class="form-group col-md-4 pr-md-3">
+			<label for="nombre" th:text="#{label.nombre}" /><span style="color: red">*</span>
+			<input type="text" th:field="*{nombre}" class="form-control form-control-sm" />
+		</div>
+		<div class="form-group col-md-4 pr-md-3">
+			<label for="apellido1" th:text="#{label.apellido1}" /><span style="color: red">*</span>
+			<input type="text" th:field="*{apellido1}" class="form-control form-control-sm" />
+		</div>
+		<div class="form-group col-md-4 pr-md-3">
+			<label for="apellido2" th:text="#{label.apellido2}" /><span style="color: red">*</span>
+			<input type="text" th:field="*{apellido2}" class="form-control form-control-sm" />
+		</div>		
+	</div>
+	
+	<!-- Sexo, Fecha Nacimiento, Documento Identidad -->
+	<div class="form-row">
+		<div class="form-group col-md-3 pr-md-3">
+			<label for="sexo" th:text="#{label.sexo}" />
+			<select th:field="*{sexo}" class="form-control form-control-sm">
+				<option th:value="-1">---</option>
+				<option th:value="1" th:selected="${estudianteForm.sexo eq 1 }" th:text="Hombre"/>
+				<option th:value="2" th:selected="${estudianteForm.sexo eq 2 }" th:text="Mujer"/>
+			</select>	
+		</div>	
+		<div class="form-group col-md-3 pr-md-3">
+				<label for="fechaNacimiento" th:text="#{label.fechaNacimiento}" /><span style="color: red">*</span> 
+				<input type="text" th:field="*{fechaNacimientoS}" class="form-control form-control-sm datepicker" data-date-format="dd/mm/yyyy" placeholder="dd/mm/aaaa" />
+		</div>		
+		<div class="form-group col-md-3 pr-md-3">
+			<label for="tipoDocumento" th:text="#{label.tipoDocumento}" /><span style="color: red">*</span>
+			<select th:field="*{tipoDocumento}" class="form-control form-control-sm">
+				<option th:value="-1">---</option>
+				<option th:value="1" th:selected="${estudianteForm.tipoDocumento eq 1}" th:text="NIF" />
+				<option th:value="2" th:selected="${estudianteForm.tipoDocumento eq 2}" th:text="NIE" />
+				<option th:value="3" th:selected="${estudianteForm.tipoDocumento eq 3}" th:text="Pasaporte" />
+			</select>
+		</div>		
+		<div class="form-group col-md-3 pr-md-3">
+			<label for="dniNie" th:text="#{label.dniNie}" /><span style="color: red">*</span>
+			<input type="text" th:field="*{dniNie}" class="form-control form-control-sm" />
+		</div>		
+	</div>
+	
+	<!-- email, Teléfono -->
+	<div class="form-row">
+		<div class="form-group col-md-6 pr-md-3">
+			<label for="email" th:text="#{label.email}" /><span style="color: red">*</span>
+			<input type="text" th:field="*{email}" class="form-control form-control-sm" />
+		</div>
+		<div class="form-group col-md-6 pr-md-3">
+			<label for="telefono" th:text="#{label.telefono}" /><span style="color: red">*</span>
+			<input type="text" th:field="*{telefono}" class="form-control form-control-sm" />
+		</div>
+	</div>
+	
+	<!-- Dirección, Municipio, Cód. Postal -->
+	<div class="form-row">	
+		<div class="form-group col-md-6">
+			<label for="direccion" th:text="#{label.direccion}" /><span style="color: red">*</span>
+			<input type="text" th:field="*{direccion}" class="form-control form-control-sm" />
+		</div>
+		<div class="form-group col-md-4 pr-md-3">
+			<label for="muncipio" th:text="#{label.muncipio}" /><span style="color: red">*</span>
+			<input type="text" th:field="*{muncipio}" class="form-control form-control-sm" />
+		</div>		
+		<div class="form-group col-md-2 pr-md-3">
+			<label for="codPostal" th:text="#{label.codPostal}" /><span style="color: red">*</span>
+			<input type="text" th:field="*{codPostal}" class="form-control form-control-sm" />
+		</div>		
+	</div>	
+	
+	<!-- Provincia, País, Grado Minusvalía -->
+	<div class="form-row">
+		<div class="form-group col-md-3 pr-md-3">
+			<label for="provincia" th:text="#{label.provincia}" /><span style="color: red">*</span>
+			<input type="text" th:field="*{provincia}" class="form-control form-control-sm" />
+		</div>
+		<div class="form-group col-md-3 pr-md-3">
+			<label for="pais" th:text="#{label.pais}" /><span style="color: red">*</span>
+			<select th:field="*{pais}" class="form-control form-control-sm">
+				<option th:value="-1">---</option>
+				<option th:value="1" th:selected="${estudianteForm.pais eq 1}" th:text="#{label.pais.spain}" />
+				<option th:value="2" th:selected="${estudianteForm.pais eq 2}" th:text="#{label.pais.ue}" />
+				<option th:value="3" th:selected="${estudianteForm.pais eq 3}" th:text="#{label.pais.otros}" />
+			</select>
+		</div>
+		<div class="form-group col-md-3 pr-md-3">
+			<label for="nacionalidad" th:text="#{label.nacionalidad}" /><span style="color: red">*</span>
+			<input type="text" th:field="*{nacionalidad}" class="form-control form-control-sm" />
+		</div>
+		<div class="form-group col-md-3 pr-md-3">
+			<label for="gradoMinusvalia" th:text="#{label.gradoMinusvalia}" />
+			<select th:field="*{gradoMinusvalia}" class="form-control form-control-sm">
+				<option th:value="-1">---</option>
+				<option th:value="1" th:text="#{label.gradoMinusvalia.menos.33}" />
+				<option th:value="2" th:text="#{label.gradoMinusvalia.33}" />
+				<option th:value="3" th:text="#{label.gradoMinusvalia.mas.33}" />
+			</select>
+		</div>						
+	</div>
+	
+	<!-- Sedes y  Titulaciones-->
+	<div class="form-row">
+		 <div class="form-group col-md-4 pr-md-3">
+		  <label for="sede">Sede <span style="color: red">*</span></label>
+			 <select id="select_sedes" class="form-control form-control-sm" onchange="getTitulacionesList()">
+				 <option value="-1">---</option>
+				 <option th:each="sede : ${sedes}"
+                            th:value="${sede.idSede}"
+                            th:utext="${sede.nombre}"
+                            th:selected="${estudianteForm.sede eq sede.idSede}"/>
+			</select>
+			<input type="hidden" id="idSede" name="idSede" value="">
+		</div>
+		 <div class="form-group col-md-8 pr-md-3">
+		  <label for="sede">Titulaciones <span style="color: red">*</span></label>
+			 <select id="select_titulaciones" class="form-control form-control-sm">
+				 <option value="-1">---</option>
+				 <option th:each="titulacion : ${titulaciones}"
+                            th:value="${titulacion.idTitulacion}"
+                            th:utext="${titulacion.nombre}"
+                            th:selected="${estudianteForm.titulacionUpm eq titulacion.idTitulacion}"/>
+			</select>
+			<input type="hidden" id="idTitulacion" name="idTitulacion" value="">
+		</div>
+	</div>
+	
+	<div class="form-row">
+			<div class="form-group col-md-4 pr-md-3">
+			<label for="fechaInicio" th:text="#{label.fechaInicio}" /><span style="color: red">*</span>
+			<input type="text" th:field="*{fechaInicioS}" class="form-control form-control-sm datepicker" data-date-format="dd/mm/yyyy" placeholder="dd/mm/aaaa" />
+		</div>
+		<div class="form-group col-md-4 pr-md-3">
+			<label for="fechaFin" th:text="#{label.fechaFin}" />
+			<input type="text" th:field="*{fechaFinS}" class="form-control form-control-sm datepicker" data-date-format="dd/mm/yyyy" placeholder="dd/mm/aaaa" />
+			<span class="aviso text-danger">Rellenar sólo en caso de haber finalizado los estudios</span>
+		</div>
+	</div>
+	
+	
+	<div class="form-row" th:classappend="${esAlta ? 'block' : 'd-none'}">
+		<div class="form-group col-md-4 pr-md-3">
+			<label for="login">Login</label><span style="color: red">*</span>
+			<input type="text" th:field="*{login}" class="form-control form-control-sm" />
+		</div>
+		<div class="form-group col-md-4 pr-md-3">
+			<label for="password">Password</label><span style="color: red">*</span>
+			<input type="password"  th:field="*{password}" class="form-control form-control-sm" id="password" autocomplete="off" />
+		</div>
+		<div class="form-group col-md-4 pr-md-3">
+			<label for="repassword">Repita la password</label><span style="color: red">*</span>
+			<input type="password"  th:field="*{repassword}" class="form-control form-control-sm" id="repassword" autocomplete="off" />
+		</div>
+	</div>
+	
+	
+	<input type="hidden" th:if="${!esAlta}" th:field="*{login}" />
+	<input type="hidden" th:if="${!esAlta}" th:field="*{password}" />
+	<input type="hidden" th:if="${!esAlta}" th:field="*{repassword}" />
+	
+
+<br>
+	
+	<button onclick="setTitulacion()" class="btn btn-rounded btn-success btn-sm">
+		<em class="fas fa-save mr-2"></em>Guardar
+	</button>	
+
+    </form>
+</div>
+
+	<!-- SCRIPTS -->
+	<script type="text/javascript" th:src="@{/static/js/popper.min.js}" defer></script>
+	<script type="text/javascript" th:src="@{/static/js/bootstrap.min.js}" defer></script>
+	<script type="text/javascript" th:src="@{/static/js/mdb.min.js}" defer></script>
+    
+  </body>
+    
+	<script type="text/javascript">
+	    $('.datepicker').datepicker({
+	        weekStart: 1,
+	        daysOfWeekHighlighted: "6,0",
+	        autoclose: true,
+	        todayHighlight: true,
+	        language: 'es',
+	    });
+	    //$('.datepicker').datepicker("setDate", new Date());
+	    
+	    
+	    function getTitulacionesList() {
+	    	let formulario = document.getElementById("formulario_estudiante");
+	    	formulario.action = "altaEstudianteListadoTitulaciones.do";
+	    	// console.log(formulario.action);
+	    	// console.log(document.getElementById("select_sedes").value);
+	    	document.getElementById("idSede").value = document.getElementById("select_sedes").value;
+	    	formulario.submit();
+	    }
+	    
+	    function setTitulacion() {
+	    	document.getElementById("idTitulacion").value = document.getElementById("select_titulaciones").value;
+	    	console.log(document.getElementById("idTitulacion").value);
+	    	formulario.submit();	    	
+	    }
+	    
+	</script>        
+  </body>
+</html>

@@ -38,7 +38,11 @@ public class EstudianteForm implements Serializable {
 	@NotEmpty
 	private String nacionalidad;
 	private Long gradoMinusvalia;
+	
+	private Long sede;
+
 	private Long titulacionUpm;
+	
 	@NotEmpty
 	private String fechaInicioS;
 	@NotEmpty
@@ -177,6 +181,15 @@ public class EstudianteForm implements Serializable {
 
 	public void setGradoMinusvalia(Long gradoMinusvalia) {
 		this.gradoMinusvalia = gradoMinusvalia;
+	}
+	
+
+	public Long getSede() {
+		return sede;
+	}
+
+	public void setSede(Long sede) {
+		this.sede = sede;
 	}
 
 	public Long getTitulacionUpm() {

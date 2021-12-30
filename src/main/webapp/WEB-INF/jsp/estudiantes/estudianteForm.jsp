@@ -685,8 +685,8 @@
 	</c:if>
 	
 	
-	<!--  Para que no pete en la edicion -->
-	<c:if test="${esAlta eq false}">
+	<%-- Para que no pete en la edicion --%>
+ 	<c:if test="${esAlta eq false}"> 
 	
 		<form:hidden path="login" value="a"/>
 		<form:hidden path="password" value="a" />

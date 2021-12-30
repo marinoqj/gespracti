@@ -89,6 +89,8 @@ public class UrlConstants {
 
     // Gestor
     public static final String URL_ALTA_ESTUDIANTE_GESTOR = "/sec/gestor/altaEstudiante.do";
+    public static final String URL_INSERTAR_ESTUDIANTE_GESTOR = "/sec/gestor/insertarEstudiante.do";
+    public static final String URL_ALTA_ESTUDIANTE_GESTOR_LISTADO_TITULACIONES = "/sec/gestor/altaEstudianteListadoTitulaciones.do";
     public static final String URL_ALTA_EMPRESA_GESTOR = "/sec/gestor/altaEmpresa.do";
 
 }
