@@ -1,6 +1,47 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+  <head> 
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- DATEPICKER -->
+	<link rel="stylesheet" type="text/css" th:href="@{/static/css/bootstrap-datepicker.min.css}" media="all" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/bootstrap.4.5.min.css}" media="all" />
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/mdb.min.css}" media="all" />
+    
+	<link rel="stylesheet" type="text/css" th:href="@{/static/css/estilo.css}" media="all" />
+	<!-- FONTAWESOME 5.11 -->
+	<link rel="stylesheet" type="text/css" th:href="@{/static/css/all.min.css}" media="all" />
+	
+	
+	<!-- SCRIPTS -->
+	<script type="text/javascript" th:src="@{/static/js/jquery-3.3.1.min.js}" ></script>
+	<script type="text/javascript" th:src="@{/static/js/bootstrap-datepicker.min.js}" ></script>
+	<script type="text/javascript" th:src="@{/static/js/locales/bootstrap-datepicker.es.js}" charset="UTF-8"></script>
+	
+
+    <title>Formulario de Alta de Estudiante</title>
+  </head>
+  <body>
 
 
-<%@ include file="/WEB-INF/jsp/common/include_taglib.jsp" %>
+<script th:inline="javascript">
+/*<![CDATA[*/
+
+function mostarConfirmBorrarEstudiante(idEstudiante) {
+    var message = /*[[#{confirmacion.borrar.estudiante}]]*/ '¿Desea Borrar el Estudiante?';
+
+    $("#aceptarBorrar").attr("href", "javascript:borrarEstudiante(" + idEstudiante + ");");
+
+    mostrarConfirm(message);
+}
+/*]]>*/
+</script>
+
 
 <script>
 function borrarEstudiante(idEstudiante){
@@ -18,15 +59,6 @@ function editarEstudiante(idEstudiante){
 
 
 }
-
-function mostarConfirmBorrarEstudiante(idEstudiante) {
-    var message = '<spring:message code="confirmacion.borrar.estudiante"/>';
-
-    $("#aceptarBorrar").attr("href", "javascript:borrarEstudiante(" + idEstudiante + ");");
-
-    mostrarConfirm(message);
-}
-
 
 function mostrarConfirm(message) {
     $('#alertModal').find('.modal-body p').html(message);
@@ -52,7 +84,7 @@ $(document).ready(function(){
       </div>
       <div class="modal-footer">
          <button type="button" class="btn btn-rounded btn-secondary btn-sm" data-dismiss="modal"><em class="fas fa-times-circle"></em>&nbsp;&nbsp;Cancelar</button>
-         <a class="btn btn-rounded btn-primary btn-sm" role="button" href="#" id="aceptarBorrar"><em class="fas fa-check-circle"></em>&nbsp;&nbsp;<spring:message code="button.aceptar" /></a>
+         <a class="btn btn-rounded btn-primary btn-sm" role="button" href="#" id="aceptarBorrar"><em class="fas fa-check-circle"></em><span th:text="#{button.aceptar}" /></a>
       </div>
     </div>
   </div>
@@ -62,7 +94,7 @@ $(document).ready(function(){
 
 <form name="formulario" method="post">
 	<input type="hidden" name="idEstudiante"/>
-	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+	<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />	
 </form>
 
 		<br>
@@ -70,112 +102,122 @@ $(document).ready(function(){
 		<br>
 		<br>
 
+<main>
+<div class="container">
 
-		<div class="row p-sup-20">
-			<div class="col-md-12">
-				<nav aria-label="breadcrumb">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item active"><em class="fas fa-list-alt fa-lg mr-1"></em><em class="fas fa-user-graduate fa-lg mr-2"></em>Listado de estudiantes</li>
-					</ol>
-				</nav>
-			</div>
+	<div class="row p-sup-20">
+		<div class="col-md-12">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item active"><em class="fas fa-list-alt fa-lg mr-1"></em><em class="fas fa-user-graduate fa-lg mr-2"></em>Listado de estudiantes</li>
+				</ol>
+			</nav>
 		</div>
+	</div>
 
 
 
-<c:if  test="${!empty estudiantes}">
 
+<div th:classappend="${estudiantes!=null and !estudiantes.isEmpty() ? 'block' : 'd-none'}">
 
-<div class="row">
-	<div class="col-md-8"></div>
+<!-- TODO: Resolver la inclusión de TAGS... ¿es como los fragments? -->
 
-	<c:if test="${hayFiltro eq false}">
-		<mistags:paginacion accion="listadoEstudiantes" />
-	</c:if>
-
-	<c:if test="${hayFiltro eq true}">
-		<mistags:paginacion accion="listadoEstudiantesFiltrado" />
-	</c:if>
-</div>
 
 
 <br>
 
 	<table class="table table-hover">
 		<thead class="blue lighten-4">
-			<tr class="bg-light">
-	    		
-					<th scope="col"><spring:message code="label.nombre"/></th>
-					
-					<th scope="col"><spring:message code="label.apellido1"/></th>
-					
-					<th scope="col"><spring:message code="label.apellido2"/></th>
-										
-					<th scope="col"><spring:message code="label.dniNie"/></th>
-					
-					<th scope="col"><spring:message code="label.email"/></th>
-					
-					<th scope="col"><spring:message code="label.telefono"/></th>
-										
+			<tr class="bg-light">  		
+					<th scope="col" th:text="#{label.nombre}"/>	
+					<th scope="col" th:text="#{label.apellido1}"/>			
+					<th scope="col" th:text="#{label.apellido2}"/>								
+					<th scope="col" th:text="#{label.dniNie}"/>				
+					<th scope="col" th:text="#{label.email}"/>		
+					<th scope="col" th:text="#{label.telefono}"/>
 					<th scope="col">&nbsp;</th>
 				</tr>
 			</thead>
+
 			<tbody>
-		<c:forEach items="${estudiantes}" var="estudiante">
-			<tr>
-			
-				<td>${estudiante.nombre}</td>
-			
-				<td>${estudiante.apellido1}</td>
-			
-				<td>${estudiante.apellido2}</td>
-						
-				<td>${estudiante.dniNie}</td>
-			
-				<td>${estudiante.email}</td>
-			
-				<td>${estudiante.telefono}</td>
-						
-				<td>
-					<div>
+				<tr th:if="${estudiantes.empty}">
+            		<td colspan="7" class="text-danger">No hay estudiantes que mostrar... </td>
+        		</tr>
+				<tr th:each="estudiante : ${estudiantes}">
+				    <td th:text="${estudiante.nombre}" />
+				    <td th:text="${estudiante.apellido1}" /> 
+				    <td th:text="${estudiante.apellido2}" /> 
+				    <td th:text="${estudiante.dniNie}" /> 
+				    <td th:text="${estudiante.email}" /> 
+				    <td th:text="${estudiante.telefono}" /> 			
+					<td>
+						<div>
 							<label data-toggle="dropdown" aria-haspopup="true"
 								aria-expanded="false"> <span style="cursor: pointer;"><em class="fas fa-cog fa-lg"></em></span>
 							</label>
 							<ul class="dropdown-menu dropdown-primary">
 								<li class="nav-item dropdown"><a class="dropdown-item"
-									href="javascript:editarEstudiante('${estudiante.idEstudiante}')"><spring:message code="label.editar"/></a></li>
-								<li class="nav-item dropdown"><a class="dropdown-item"
-									href="javascript:mostarConfirmBorrarEstudiante('${estudiante.idEstudiante}')"><spring:message code="label.borrar"/></a></li>
+									href="javascript:editarEstudiante('${estudiante.idEstudiante}')" th:text="#{label.editar}"/></a></li>
+								<li class="nav-item dropdown">
+									<a class="dropdown-item" href="javascript:mostarConfirmBorrarEstudiante('${estudiante.idEstudiante}')" th:text="#{label.borrar}"/></a>
+								</li>
 							</ul>
 						</div>
-				</td>
+					</td>
 			</tr>
-		</c:forEach>
 			</tbody>
 			</table>
 
 
-		</c:if>
-
-		<c:if  test="${empty estudiantes}">
-			<br><br>
-			<div class="text-center text-danger p-5">No hay estudiantes que mostrar...</div>
-
-
-		</c:if>
+</div>
+<!-- Fin container -->
 
 		<div class="row">
 			<div class="col-md-12">
-			<sec:authorize access="hasRole('ADMIN')">
-				<a href='<spring:url value="/sec/gestor/altaEstudianteGestor.do"/>' class="btn btn-rounded btn-primary btn-sm"><em class="fas fa-plus-circle"></em>&nbsp;&nbsp;Nuevo</a>
-			</sec:authorize>
-			<sec:authorize access="hasRole('ESTUDIANTE')">
-				<a href='<spring:url value="/sec/altaEstudiante.do"/>' class="btn btn-rounded btn-primary btn-sm"><em class="fas fa-plus-circle"></em>&nbsp;&nbsp;Nuevo</a>
-			</sec:authorize>
-
+				<div sec:authorize="isAuthenticated()"><a th:href="@{/sec/gestor/altaEstudiante.do}" class="btn btn-rounded btn-primary btn-sm"><em class="fas fa-plus-circle"></em>&nbsp;&nbsp;Nuevo</a></div>
 			</div>
 		</div>
 
+</div>
+</main>
 
+	<!-- SCRIPTS -->
+	<script type="text/javascript" th:src="@{/static/js/popper.min.js}" defer></script>
+	<script type="text/javascript" th:src="@{/static/js/bootstrap.min.js}" defer></script>
+	<script type="text/javascript" th:src="@{/static/js/mdb.min.js}" defer></script>
+	<script type="text/javascript" src="@{/static/js/pie.js}" defer></script>
 
+	<script type="text/javascript">
+	function ready(callback){
+	    // in case the document is already rendered
+	    if (document.readyState!='loading') callback();
+	    // modern browsers
+	    else if (document.addEventListener) document.addEventListener('DOMContentLoaded', callback);
+	    // IE <= 8
+	    else document.attachEvent('onreadystatechange', function(){
+	        if (document.readyState=='complete') callback();
+	    });
+	}
 
+	ready(function(){
+		let winLocation = window.location.pathname;
+	    // console.log(winLocation);
+	    let indexDotDo = winLocation.lastIndexOf(".do");
+	    let indexlastBar = winLocation.lastIndexOf("/") + 1;
+		let idTarget = null;
+
+	    if (indexDotDo != -1) {
+			idTarget = winLocation.substring(indexlastBar, indexDotDo);
+		} else {
+			idTarget = "inicio";
+		}
+
+	    // document.getElementById(idTarget).classList.toggle("active");
+
+	    // console.log(idTarget);
+	});
+	
+	</script>
+	<noscript>Su navegador no soporta Javascript o este lenguaje está desactivado</noscript>
+</body>
+</html>

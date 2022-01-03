@@ -23,7 +23,7 @@
 	                    <a class="nav-link" href='<spring:url value="/sec/listadoEmpresas1.do"/>'>Empresas</a>
 	                </li>                
 	                <li class="nav-item">
-	                    <a class="nav-link" href='<spring:url value="/sec/listadoEstudiantes1.do"/>'>Candidatos</a>
+	                    <a class="nav-link" href='<spring:url value="/sec/gestor/listadoEstudiantes.do"/>'>Candidatos</a>
 	                </li>                
 				      <li class="nav-item active">
 				        <a class="nav-link" href='<spring:url value="/sec/listadoOfertas1.do"/>'>Ofertas</a>

@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +31,7 @@ import es.golemdr.gespracti.domain.Usuario;
 import es.golemdr.gespracti.domain.form.EmpresaForm;
 import es.golemdr.gespracti.domain.form.EstudianteForm;
 import es.golemdr.gespracti.ext.Constantes;
+import es.golemdr.gespracti.ext.utils.paginacion.PaginacionBean;
 import es.golemdr.gespracti.ext.utils.tools.FormateadorFechas;
 import es.golemdr.gespracti.service.EstudiantesService;
 import es.golemdr.gespracti.service.SedesService;
@@ -165,6 +165,26 @@ public class NavegacionGestorController {
 
 		return destino; 
 	}
+	
+	@GetMapping(value=UrlConstants.URL_LISTADO_ESTUDIANTES_GESTOR)
+	public String list(Map<String, Object> map, HttpServletRequest request) {
+
+		List<Estudiante> resultado = null;
+        boolean hayFiltro = false;
+
+
+		PaginacionBean paginacion = new PaginacionBean();
+		paginacion.setInicio(0);
+
+		resultado = estudiantesService.getEstudiantes(paginacion);
+
+		map.put("paginacion", paginacion);
+		map.put("estudiantes", resultado);
+		map.put("estudiante",new EstudianteForm());
+        map.put(Constantes.ATRIBUTO_SESSION_HAY_FILTRO, hayFiltro);
+
+		return ForwardConstants.FWD_ESTUDIANTE_LISTADO_GESTOR;
+	}	
 	
 	
 	
