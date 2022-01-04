@@ -170,7 +170,7 @@ $(document).ready(function(){
 				<a href='<spring:url value="/sec/gestor/altaEstudiante.do"/>' class="btn btn-rounded btn-primary btn-sm"><em class="fas fa-plus-circle"></em>&nbsp;&nbsp;Nuevo</a>
 			</sec:authorize>
 			<sec:authorize access="hasRole('ESTUDIANTE')">
-				<a href='<spring:url value="/sec/altaEstudiante.do"/>' class="btn btn-rounded btn-primary btn-sm"><em class="fas fa-plus-circle"></em>&nbsp;&nbsp;Nuevo</a>
+				<a href='<spring:url value="/public/altaEstudiante.do"/>' class="btn btn-rounded btn-primary btn-sm"><em class="fas fa-plus-circle"></em>&nbsp;&nbsp;Nuevo</a>
 			</sec:authorize>
 
 			</div>

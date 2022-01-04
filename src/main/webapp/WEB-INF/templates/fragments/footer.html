@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<body>
+
+<footer th:fragment="footer" id="pie-pagina" class="page-footer fixed-bottom">
+	<div class="footer-copyright text-center font-small">
+	    <div class="py-2" style="background-color: #1867b7 !important;">
+	        Contacto | Aviso legal | © 2020 Copyright: <a href="http://www.golemdr.es/">GolemDR </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v. [[#{version.actual}]]
+	    </div>
+	</div>
+	
+	<!-- SCRIPTS -->
+	<script type="text/javascript" th:src="@{/static/js/popper.min.js}" defer></script>
+	<script type="text/javascript" th:src="@{/static/js/bootstrap.min.js}" defer></script>
+	<script type="text/javascript" th:src="@{/static/js/mdb.min.js}" defer></script>
+	<script type="text/javascript" th:src="@{/static/js/pie.js}" defer></script>
+
+	<script type="text/javascript">
+	function ready(callback){
+	    // in case the document is already rendered
+	    if (document.readyState!='loading') callback();
+	    // modern browsers
+	    else if (document.addEventListener) document.addEventListener('DOMContentLoaded', callback);
+	    // IE <= 8
+	    else document.attachEvent('onreadystatechange', function(){
+	        if (document.readyState=='complete') callback();
+	    });
+	}
+
+	ready(function(){
+		let winLocation = window.location.pathname;
+	    // console.log(winLocation);
+	    let indexDotDo = winLocation.lastIndexOf(".do");
+	    let indexlastBar = winLocation.lastIndexOf("/") + 1;
+		let idTarget = null;
+
+	    if (indexDotDo != -1) {
+			idTarget = winLocation.substring(indexlastBar, indexDotDo);
+		} else {
+			idTarget = "inicio";
+		}
+
+	    // document.getElementById(idTarget).classList.toggle("active");
+
+	    // console.log(idTarget);
+	});
+	
+	</script>
+	<noscript>Su navegador no soporta Javascript o este lenguaje está desactivado</noscript>	
+</footer>
+
+</body>
+</html>

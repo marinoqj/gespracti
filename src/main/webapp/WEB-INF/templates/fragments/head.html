@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<body>
+
+
+<head th:fragment="head(title)"> 
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- DATEPICKER -->
+	<link rel="stylesheet" type="text/css" th:href="@{/static/css/bootstrap-datepicker.min.css}" media="all" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/bootstrap.4.5.min.css}" media="all" />
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/mdb.min.css}" media="all" />
+    
+	<link rel="stylesheet" type="text/css" th:href="@{/static/css/estilo.css}" media="all" />
+	<!-- FONTAWESOME 5.11 -->
+	<link rel="stylesheet" type="text/css" th:href="@{/static/css/all.min.css}" media="all" />
+	
+	
+	<!-- SCRIPTS -->
+	<script type="text/javascript" th:src="@{/static/js/jquery-3.3.1.min.js}" ></script>
+	<script type="text/javascript" th:src="@{/static/js/bootstrap-datepicker.min.js}" ></script>
+	<script type="text/javascript" th:src="@{/static/js/locales/bootstrap-datepicker.es.js}" charset="UTF-8"></script>
+
+    <title th:text="${title}" />
+</head>
+
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<body>
+
+<!-- Menú -->
+
+<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar py-0" style="background-color: #1867b7 !important;">
+    <div class="container">
+        <a class="navbar-brand" href="#"><img class="d-inline-block" th:src="@{/static/imagenes/upm-logo.png}"/></a>
+        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler"
+                data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <div sec:authorize="hasRole('ADMIN')">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" th:href="@{/inicio.do}">Inicio <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/sec/listadoEmpresas1.do}">Empresas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           th:href="@{/sec/gestor/listadoEstudiantes.do}">Candidatos</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" th:href="@{/sec/listadoOfertas1.do}">Ofertas</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href='#'>Prácticas</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href='#'>Tutores</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href='#'>Estudios</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href='#'>Usuarios</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href='#'>Informes</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
+                           data-toggle="dropdown" href="#" id="navbarDropdown3" role="button">
+                            Comunicaciones
+                        </a>
+                        <div aria-labelledby="navbarDropdown3" class="dropdown-menu dropdown-default">
+                            <a class="dropdown-item" th:href="@{/sec/altaComunicaciones.do}">Nuevo
+                                Comunicado Masivo</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" th:href="@{/sec/listadoComunicaciones.do}">Listado
+                                Comunicados Masivos</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div sec:authorize="hasRole('ESTUDIANTE')">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link pr-5" th:href="@{/inicio.do}">Inicio <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link pr-5" th:href="@{/inicio.do}">Ofertas de prácticas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link pr-5" th:href="@{/inicio.do}">Mi CV</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link pr-5" th:href="@{/inicio.do}">Mis candidaturas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/inicio.do}">Mis prácticas</a>
+                    </li>
+                </ul>
+            </div>
+            <div sec:authorize="hasRole('TUTOR')">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" th:href="@{/inicio.do}">Inicio <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
+                           data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+                            Prácticas tutorizadas
+                        </a>
+                        <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Activas</a>
+                            <a class="dropdown-item" href="#">Histórico</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div sec:authorize="hasRole('EMPRESA')">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" th:href="@{/inicio.do}">Inicio <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
+                           data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+                            Ofertas
+                        </a>
+                        <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Nueva oferta</a>
+                            <a class="dropdown-item" href="#">Ofertas vigentes</a>
+                            <a class="dropdown-item" href="#">Histórico</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='#'>Prácticas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='#'>Mis tareas</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown active">
+                    <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
+                       data-toggle="dropdown" href="#" id="navbarDropdownMenuLink-333">
+                        [[${#request.userPrincipal.principal.Username}]] &nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-user-circle fa-lg"></i>
+                    </a>
+                    <div aria-labelledby="navbarDropdownMenuLink-333"
+                         class="dropdown-menu dropdown-menu-right dropdown-default">
+                        <a class="dropdown-item" href="#">Mi perfil</a>
+                        <a class="dropdown-item" th:href="@{/logout.do}">Cerrar sesión</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- FIN Menú -->
+
+</body>
+</html>

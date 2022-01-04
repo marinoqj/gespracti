@@ -2,31 +2,16 @@
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-  <head> 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      
+<head th:replace="fragments/head :: head('Listado de Estudiante')"></head>
 
-	<!-- DATEPICKER -->
-	<link rel="stylesheet" type="text/css" th:href="@{/static/css/bootstrap-datepicker.min.css}" media="all" />
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" th:href="@{/static/css/bootstrap.4.5.min.css}" media="all" />
-    <link rel="stylesheet" type="text/css" th:href="@{/static/css/mdb.min.css}" media="all" />
-    
-	<link rel="stylesheet" type="text/css" th:href="@{/static/css/estilo.css}" media="all" />
-	<!-- FONTAWESOME 5.11 -->
-	<link rel="stylesheet" type="text/css" th:href="@{/static/css/all.min.css}" media="all" />
-	
-	
-	<!-- SCRIPTS -->
-	<script type="text/javascript" th:src="@{/static/js/jquery-3.3.1.min.js}" ></script>
-	<script type="text/javascript" th:src="@{/static/js/bootstrap-datepicker.min.js}" ></script>
-	<script type="text/javascript" th:src="@{/static/js/locales/bootstrap-datepicker.es.js}" charset="UTF-8"></script>
-	
+<body>
 
-    <title>Formulario de Alta de Estudiante</title>
-  </head>
-  <body>
+
+
+<header>
+	<nav th:replace="fragments/navbar :: navbar"></nav>
+</header>
 
 
 <script th:inline="javascript">
@@ -174,50 +159,20 @@ $(document).ready(function(){
 
 		<div class="row">
 			<div class="col-md-12">
-				<div sec:authorize="isAuthenticated()"><a th:href="@{/sec/gestor/altaEstudiante.do}" class="btn btn-rounded btn-primary btn-sm"><em class="fas fa-plus-circle"></em>&nbsp;&nbsp;Nuevo</a></div>
+				<div sec:authorize="hasRole('ADMIN')">
+					<a th:href="@{/sec/gestor/altaEstudiante.do}" class="btn btn-rounded btn-primary btn-sm"><em class="fas fa-plus-circle"></em>&nbsp;&nbsp;Nuevo</a>
+				</div>				
+				<div sec:authorize="hasRole('ESTUDIANTE')">
+					<a th:href="@{/public/altaEstudiante.do}" class="btn btn-rounded btn-primary btn-sm"><em class="fas fa-plus-circle"></em>&nbsp;&nbsp;Nuevo</a>
+				</div>
 			</div>
 		</div>
 
 </div>
 </main>
 
-	<!-- SCRIPTS -->
-	<script type="text/javascript" th:src="@{/static/js/popper.min.js}" defer></script>
-	<script type="text/javascript" th:src="@{/static/js/bootstrap.min.js}" defer></script>
-	<script type="text/javascript" th:src="@{/static/js/mdb.min.js}" defer></script>
-	<script type="text/javascript" src="@{/static/js/pie.js}" defer></script>
 
-	<script type="text/javascript">
-	function ready(callback){
-	    // in case the document is already rendered
-	    if (document.readyState!='loading') callback();
-	    // modern browsers
-	    else if (document.addEventListener) document.addEventListener('DOMContentLoaded', callback);
-	    // IE <= 8
-	    else document.attachEvent('onreadystatechange', function(){
-	        if (document.readyState=='complete') callback();
-	    });
-	}
+<footer th:replace="fragments/footer :: footer"></footer>
 
-	ready(function(){
-		let winLocation = window.location.pathname;
-	    // console.log(winLocation);
-	    let indexDotDo = winLocation.lastIndexOf(".do");
-	    let indexlastBar = winLocation.lastIndexOf("/") + 1;
-		let idTarget = null;
-
-	    if (indexDotDo != -1) {
-			idTarget = winLocation.substring(indexlastBar, indexDotDo);
-		} else {
-			idTarget = "inicio";
-		}
-
-	    // document.getElementById(idTarget).classList.toggle("active");
-
-	    // console.log(idTarget);
-	});
-	
-	</script>
-	<noscript>Su navegador no soporta Javascript o este lenguaje está desactivado</noscript>
 </body>
 </html>

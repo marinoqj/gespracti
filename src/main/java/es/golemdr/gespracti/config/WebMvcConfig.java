@@ -1,11 +1,12 @@
 package es.golemdr.gespracti.config;
 
+import java.util.HashSet;
 import java.util.Locale;
 import java.util.Properties;
+import java.util.Set;
 
 import javax.sql.DataSource;
 
-import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.MessageSource;
@@ -40,6 +41,8 @@ import org.springframework.web.servlet.view.BeanNameViewResolver;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 import org.springframework.web.util.UrlPathHelper;
+import org.thymeleaf.dialect.IDialect;
+import org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
@@ -171,6 +174,13 @@ public class WebMvcConfig implements WebMvcConfigurer {
         // across different data types, so this flag is "false" by default
         // for safer backwards compatibility.
         templateEngine.setEnableSpringELCompiler(true);
+
+        
+        // Hay que añadir el dialecto para la seguridad, y así poder utilizar las etiquetas sec:authorize
+        Set<IDialect> additionalDialects = new HashSet<>();
+        additionalDialects.add(new SpringSecurityDialect());
+        templateEngine.setAdditionalDialects(additionalDialects);
+        
         return templateEngine;
     }
 
