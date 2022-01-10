@@ -90,7 +90,7 @@ public class UrlConstants {
     public static final String URL_COMUNICACIONES_FORM = SEGURIDAD_COMUNICACIONES + "/altaComunicaciones.do";
 
     // Gestor
-    public static final String URL_LISTADO_ESTUDIANTES_GESTOR = SEGURIDAD_ESTUDIANTES + GESTOR + "/listadoEstudiantes.do";
+    public static final String URL_LISTADO_ESTUDIANTES_GESTOR = SEGURIDAD_ESTUDIANTES + GESTOR + "/listadoEstudiantes" + SUFIJO_PAGINACION;
     public static final String URL_ALTA_ESTUDIANTE_GESTOR = "/sec/gestor/altaEstudiante.do";
     public static final String URL_INSERTAR_ESTUDIANTE_GESTOR = SEGURIDAD_ESTUDIANTES + GESTOR + "/insertarEstudiante.do";
     public static final String URL_ALTA_ESTUDIANTE_GESTOR_LISTADO_TITULACIONES = SEGURIDAD_ESTUDIANTES + GESTOR + "/altaEstudianteListadoTitulaciones.do";

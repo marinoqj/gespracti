@@ -30,8 +30,13 @@ public class EstudiantesService {
 		public List<Estudiante> getEstudiantes(PaginacionBean paginacionBean) {
 
 			Pageable paginacion = PageRequest.of(paginacionBean.getInicio(),paginacionBean.getElementosXpagina());
+			
+			List<Estudiante> listEstudiantes = estudiantesRepository.findAll(paginacion).getContent();
+			
+			int totalRegistros = getTotalEstudiantes();
+			paginacionBean.setTotalRegistros(totalRegistros);
 
-			return estudiantesRepository.findAll(paginacion).getContent();
+			return listEstudiantes;
 
 		}
 

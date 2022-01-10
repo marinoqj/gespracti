@@ -144,6 +144,10 @@ tr.bg-light th {
 	font-size: 0.9rem;
 }
 
+footer {
+	padding-top: 80px;
+}
+
 
 @media (max-width: 992px) {
 	

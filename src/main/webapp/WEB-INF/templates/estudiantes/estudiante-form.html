@@ -42,14 +42,17 @@
 		<div class="form-group col-md-4 pr-md-3">
 			<label for="nombre" th:text="#{label.nombre}" /><span style="color: red">*</span>
 			<input type="text" th:field="*{nombre}" class="form-control form-control-sm" />
+			<span th:if="${#fields.hasErrors('nombre')}" class="text-danger aviso">[[${#fields.errors('nombre')}]]</span>
 		</div>
 		<div class="form-group col-md-4 pr-md-3">
 			<label for="apellido1" th:text="#{label.apellido1}" /><span style="color: red">*</span>
 			<input type="text" th:field="*{apellido1}" class="form-control form-control-sm" />
+			<span th:if="${#fields.hasErrors('apellido1')}" class="text-danger aviso">[[${#fields.errors('apellido1')}]]</span>
 		</div>
 		<div class="form-group col-md-4 pr-md-3">
 			<label for="apellido2" th:text="#{label.apellido2}" /><span style="color: red">*</span>
 			<input type="text" th:field="*{apellido2}" class="form-control form-control-sm" />
+			<span th:if="${#fields.hasErrors('apellido2')}" class="text-danger aviso">[[${#fields.errors('apellido2')}]]</span>
 		</div>		
 	</div>
 	
@@ -61,11 +64,13 @@
 				<option th:value="-1">---</option>
 				<option th:value="1" th:selected="${estudianteForm.sexo eq 1 }" th:text="Hombre"/>
 				<option th:value="2" th:selected="${estudianteForm.sexo eq 2 }" th:text="Mujer"/>
-			</select>	
+			</select>
+<!-- 			<span th:if="${#fields.hasErrors('sexo')}" class="text-danger aviso">[[${#fields.errors('sexo')}]]</span>	 -->
 		</div>	
 		<div class="form-group col-md-3 pr-md-3">
 				<label for="fechaNacimiento" th:text="#{label.fechaNacimiento}" /><span style="color: red">*</span> 
 				<input type="text" th:field="*{fechaNacimientoS}" class="form-control form-control-sm datepicker" data-date-format="dd/mm/yyyy" placeholder="dd/mm/aaaa" />
+				<span th:if="${#fields.hasErrors('fechaNacimientoS')}" class="text-danger aviso">[[${#fields.errors('fechaNacimientoS')}]]</span>
 		</div>		
 		<div class="form-group col-md-3 pr-md-3">
 			<label for="tipoDocumento" th:text="#{label.tipoDocumento}" /><span style="color: red">*</span>
@@ -75,10 +80,12 @@
 				<option th:value="2" th:selected="${estudianteForm.tipoDocumento eq 2}" th:text="NIE" />
 				<option th:value="3" th:selected="${estudianteForm.tipoDocumento eq 3}" th:text="Pasaporte" />
 			</select>
+			<span th:if="${#fields.hasErrors('tipoDocumento')}" class="text-danger aviso">[[${#fields.errors('tipoDocumento')}]]</span>
 		</div>		
 		<div class="form-group col-md-3 pr-md-3">
 			<label for="dniNie" th:text="#{label.dniNie}" /><span style="color: red">*</span>
 			<input type="text" th:field="*{dniNie}" class="form-control form-control-sm" />
+			<span th:if="${#fields.hasErrors('dniNie')}" class="text-danger aviso">[[${#fields.errors('dniNie')}]]</span>
 		</div>		
 	</div>
 	
@@ -87,10 +94,12 @@
 		<div class="form-group col-md-6 pr-md-3">
 			<label for="email" th:text="#{label.email}" /><span style="color: red">*</span>
 			<input type="text" th:field="*{email}" class="form-control form-control-sm" />
+			<span th:if="${#fields.hasErrors('email')}" class="text-danger aviso">[[${#fields.errors('email')}]]</span>
 		</div>
 		<div class="form-group col-md-6 pr-md-3">
 			<label for="telefono" th:text="#{label.telefono}" /><span style="color: red">*</span>
 			<input type="text" th:field="*{telefono}" class="form-control form-control-sm" />
+			<span th:if="${#fields.hasErrors('telefono')}" class="text-danger aviso">[[${#fields.errors('telefono')}]]</span>
 		</div>
 	</div>
 	
@@ -99,14 +108,17 @@
 		<div class="form-group col-md-6">
 			<label for="direccion" th:text="#{label.direccion}" /><span style="color: red">*</span>
 			<input type="text" th:field="*{direccion}" class="form-control form-control-sm" />
+			<span th:if="${#fields.hasErrors('direccion')}" class="text-danger aviso">[[${#fields.errors('direccion')}]]</span>
 		</div>
 		<div class="form-group col-md-4 pr-md-3">
-			<label for="muncipio" th:text="#{label.muncipio}" /><span style="color: red">*</span>
+			<label for="muncipio" th:text="#{label.municipio}" /><span style="color: red">*</span>
 			<input type="text" th:field="*{muncipio}" class="form-control form-control-sm" />
+			<span th:if="${#fields.hasErrors('muncipio')}" class="text-danger aviso">[[${#fields.errors('muncipio')}]]</span>
 		</div>		
 		<div class="form-group col-md-2 pr-md-3">
 			<label for="codPostal" th:text="#{label.codPostal}" /><span style="color: red">*</span>
 			<input type="text" th:field="*{codPostal}" class="form-control form-control-sm" />
+			<span th:if="${#fields.hasErrors('codPostal')}" class="text-danger aviso">[[${#fields.errors('codPostal')}]]</span>
 		</div>		
 	</div>	
 	
@@ -115,6 +127,7 @@
 		<div class="form-group col-md-3 pr-md-3">
 			<label for="provincia" th:text="#{label.provincia}" /><span style="color: red">*</span>
 			<input type="text" th:field="*{provincia}" class="form-control form-control-sm" />
+			<span th:if="${#fields.hasErrors('provincia')}" class="text-danger aviso">[[${#fields.errors('provincia')}]]</span>
 		</div>
 		<div class="form-group col-md-3 pr-md-3">
 			<label for="pais" th:text="#{label.pais}" /><span style="color: red">*</span>
@@ -124,10 +137,12 @@
 				<option th:value="2" th:selected="${estudianteForm.pais eq 2}" th:text="#{label.pais.ue}" />
 				<option th:value="3" th:selected="${estudianteForm.pais eq 3}" th:text="#{label.pais.otros}" />
 			</select>
+			<span th:if="${#fields.hasErrors('pais')}" class="text-danger aviso">[[${#fields.errors('pais')}]]</span>
 		</div>
 		<div class="form-group col-md-3 pr-md-3">
 			<label for="nacionalidad" th:text="#{label.nacionalidad}" /><span style="color: red">*</span>
 			<input type="text" th:field="*{nacionalidad}" class="form-control form-control-sm" />
+			<span th:if="${#fields.hasErrors('nacionalidad')}" class="text-danger aviso">[[${#fields.errors('nacionalidad')}]]</span>
 		</div>
 		<div class="form-group col-md-3 pr-md-3">
 			<label for="gradoMinusvalia" th:text="#{label.gradoMinusvalia}" />
@@ -137,6 +152,7 @@
 				<option th:value="2" th:text="#{label.gradoMinusvalia.33}" />
 				<option th:value="3" th:text="#{label.gradoMinusvalia.mas.33}" />
 			</select>
+			<span th:if="${#fields.hasErrors('gradoMinusvalia')}" class="text-danger aviso">[[${#fields.errors('gradoMinusvalia')}]]</span>
 		</div>						
 	</div>
 	
@@ -151,6 +167,7 @@
                             th:utext="${sede.nombre}"
                             th:selected="${estudianteForm.sede eq sede.idSede}"/>
 			</select>
+			<span th:if="${#fields.hasErrors('sede')}" class="text-danger aviso">[[${#fields.errors('sede')}]]</span>
 			<input type="hidden" id="idSede" name="idSede" value="">
 		</div>
 		 <div class="form-group col-md-8 pr-md-3">
@@ -162,6 +179,7 @@
                             th:utext="${titulacion.nombre}"
                             th:selected="${estudianteForm.titulacionUpm eq titulacion.idTitulacion}"/>
 			</select>
+			<span th:if="${#fields.hasErrors('titulacionUpm')}" class="text-danger aviso">[[${#fields.errors('titulacionUpm')}]]</span>
 			<input type="hidden" id="idTitulacion" name="idTitulacion" value="">
 		</div>
 	</div>
@@ -170,10 +188,12 @@
 			<div class="form-group col-md-4 pr-md-3">
 			<label for="fechaInicio" th:text="#{label.fechaInicio}" /><span style="color: red">*</span>
 			<input type="text" th:field="*{fechaInicioS}" class="form-control form-control-sm datepicker" data-date-format="dd/mm/yyyy" placeholder="dd/mm/aaaa" />
+			<span th:if="${#fields.hasErrors('fechaInicioS')}" class="text-danger aviso">[[${#fields.errors('fechaInicioS')}]]</span>
 		</div>
 		<div class="form-group col-md-4 pr-md-3">
 			<label for="fechaFin" th:text="#{label.fechaFin}" />
 			<input type="text" th:field="*{fechaFinS}" class="form-control form-control-sm datepicker" data-date-format="dd/mm/yyyy" placeholder="dd/mm/aaaa" />
+			<span th:if="${#fields.hasErrors('fechaFinS')}" class="text-danger aviso">[[${#fields.errors('fechaFinS')}]]</span>
 			<span class="aviso text-danger">Rellenar sólo en caso de haber finalizado los estudios</span>
 		</div>
 	</div>
@@ -183,14 +203,17 @@
 		<div class="form-group col-md-4 pr-md-3">
 			<label for="login">Login</label><span style="color: red">*</span>
 			<input type="text" th:field="*{login}" class="form-control form-control-sm" />
+			<span th:if="${#fields.hasErrors('login')}" class="text-danger aviso">[[${#fields.errors('login')}]]</span>
 		</div>
 		<div class="form-group col-md-4 pr-md-3">
 			<label for="password">Password</label><span style="color: red">*</span>
 			<input type="password"  th:field="*{password}" class="form-control form-control-sm" id="password" autocomplete="off" />
+			<span th:if="${#fields.hasErrors('password')}" class="text-danger aviso">[[${#fields.errors('password')}]]</span>
 		</div>
 		<div class="form-group col-md-4 pr-md-3">
 			<label for="repassword">Repita la password</label><span style="color: red">*</span>
 			<input type="password"  th:field="*{repassword}" class="form-control form-control-sm" id="repassword" autocomplete="off" />
+			<span th:if="${#fields.hasErrors('repassword')}" class="text-danger aviso">[[${#fields.errors('repassword')}]]</span>
 		</div>
 	</div>
 	
@@ -209,6 +232,7 @@
     </form>
 </div>
 
+<br><br><br>
 
 <footer th:replace="fragments/footer :: footer"></footer>
     
@@ -227,8 +251,7 @@
 	    function getTitulacionesList() {
 	    	let formulario = document.getElementById("formulario_estudiante");
 	    	formulario.action = "altaEstudianteListadoTitulaciones.do";
-	    	// console.log(formulario.action);
-	    	// console.log(document.getElementById("select_sedes").value);
+
 	    	document.getElementById("idSede").value = document.getElementById("select_sedes").value;
 	    	formulario.submit();
 	    }

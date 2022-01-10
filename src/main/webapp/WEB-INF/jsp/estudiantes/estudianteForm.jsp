@@ -118,7 +118,7 @@
 			<form:errors path="direccion" element="div" id="rojo" />
 		</div>
 		<div class="form-group col-md-4 pr-md-3">
-			<label for="muncipio"><spring:message code="label.muncipio" /><span style="color: red">*</span></label>
+			<label for="muncipio"><spring:message code="label.municipio" /><span style="color: red">*</span></label>
 			<form:input path="muncipio" class="form-control form-control-sm" />
 			<form:errors path="muncipio" element="div" id="rojo" />
 		</div>		

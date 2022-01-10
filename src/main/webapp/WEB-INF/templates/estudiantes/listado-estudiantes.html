@@ -24,26 +24,28 @@ function mostarConfirmBorrarEstudiante(idEstudiante) {
 
     mostrarConfirm(message);
 }
+
+function borrarEstudiante(idEstudiante){
+	
+ 	document.formulario.idEstudiante.value = idEstudiante;
+ 	document.formulario.action= /*[[@{/sec/borrarEstudiante.do}]]*/;
+ 	document.formulario.submit();
+
+}
+
+function editarEstudiante(idEstudiante){
+
+	document.formulario.idEstudiante.value = idEstudiante;
+	document.formulario.action= /*[[@{/sec/editarEstudiante.do}]]*/;
+	document.formulario.submit();
+}
+
 /*]]>*/
 </script>
 
 
 <script>
-function borrarEstudiante(idEstudiante){
 
-	 	document.formulario.idEstudiante.value = idEstudiante;
-	 	document.formulario.action="borrarEstudiante.do";
-	 	document.formulario.submit();
-
-}
-function editarEstudiante(idEstudiante){
-
- 	document.formulario.idEstudiante.value = idEstudiante;
- 	document.formulario.action="editarEstudiante.do";
- 	document.formulario.submit();
-
-
-}
 
 function mostrarConfirm(message) {
     $('#alertModal').find('.modal-body p').html(message);
@@ -105,8 +107,19 @@ $(document).ready(function(){
 
 <div th:classappend="${estudiantes!=null and !estudiantes.isEmpty() ? 'block' : 'd-none'}">
 
-<!-- TODO: Resolver la inclusión de TAGS... ¿es como los fragments? -->
+<div class="row">
+	<div class="col-md-8"></div>
+<!-- 	paginacion.totalPaginas > 1: [[${paginacion.totalPaginas > 1}]]<br> -->
+<!-- 	paginacion.totalPaginas: [[${paginacion.totalPaginas}]] -->
+	<div class="col-md-4" th:if="${hayFiltro}">
+  		<ul th:replace="fragments/paginacion :: paginacion('listadoEstudiantesFiltrado')" />
+	</div>
+	<div class="col-md-4" th:unless="${hayFiltro}">
+  		<ul th:replace="fragments/paginacion :: paginacion('listadoEstudiantes')" />
+	</div>
+	
 
+</div>
 
 
 <br>
@@ -141,10 +154,10 @@ $(document).ready(function(){
 								aria-expanded="false"> <span style="cursor: pointer;"><em class="fas fa-cog fa-lg"></em></span>
 							</label>
 							<ul class="dropdown-menu dropdown-primary">
-								<li class="nav-item dropdown"><a class="dropdown-item"
-									href="javascript:editarEstudiante('${estudiante.idEstudiante}')" th:text="#{label.editar}"/></a></li>
 								<li class="nav-item dropdown">
-									<a class="dropdown-item" href="javascript:mostarConfirmBorrarEstudiante('${estudiante.idEstudiante}')" th:text="#{label.borrar}"/></a>
+									<a class="dropdown-item" href="#" th:onclick="'javascript:editarEstudiante(\''+ ${estudiante.idEstudiante} +'\');'" th:text="#{label.editar}"/></a></li>
+								<li class="nav-item dropdown">
+									<a class="dropdown-item" href="#" th:onclick="'javascript:mostarConfirmBorrarEstudiante(\''+ ${estudiante.idEstudiante} +'\');'" th:text="#{label.borrar}"/></a>
 								</li>
 							</ul>
 						</div>
@@ -160,17 +173,16 @@ $(document).ready(function(){
 		<div class="row">
 			<div class="col-md-12">
 				<div sec:authorize="hasRole('ADMIN')">
-					<a th:href="@{/sec/gestor/altaEstudiante.do}" class="btn btn-rounded btn-primary btn-sm"><em class="fas fa-plus-circle"></em>&nbsp;&nbsp;Nuevo</a>
+					<a th:href="@{/sec/gestor/altaEstudiante.do}" class="btn btn-rounded btn-primary btn-sm"><em class="fas fa-plus-circle pr-2"></em>Nuevo</a>
 				</div>				
 				<div sec:authorize="hasRole('ESTUDIANTE')">
-					<a th:href="@{/public/altaEstudiante.do}" class="btn btn-rounded btn-primary btn-sm"><em class="fas fa-plus-circle"></em>&nbsp;&nbsp;Nuevo</a>
+					<a th:href="@{/public/altaEstudiante.do}" class="btn btn-rounded btn-primary btn-sm"><em class="fas fa-plus-circle pr-2"></em>Nuevo</a>
 				</div>
 			</div>
 		</div>
 
 </div>
 </main>
-
 
 <footer th:replace="fragments/footer :: footer"></footer>
 
