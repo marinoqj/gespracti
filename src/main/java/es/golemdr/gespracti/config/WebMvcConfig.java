@@ -93,12 +93,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
 		configurer.setUrlPathHelper(pathHelper);
 	}
 	
-//	// Necesario para configurar Thymeleaf
-//    public void setApplicationContext(final ApplicationContext applicationContext)
-//            throws BeansException {
-//        this.applicationContext = applicationContext;
-//    }
-
 	
 	public MultipartResolver multipartResolver() {
 	
@@ -130,13 +124,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
         TilesViewResolver tilesViewResolver = new TilesViewResolver();
         tilesViewResolver.setOrder(1);
         
-//        ThymeleafViewResolver thymeleafResolver = new ThymeleafViewResolver();
-//        thymeleafResolver.setTemplateEngine(templateEngine());
-//        thymeleafResolver.setOrder(2);
-        
         registry.viewResolver(beanNameViewResolver);
         registry.viewResolver(tilesViewResolver);
-//        registry.viewResolver(thymeleafResolver);
         
 	}
 	
